@@ -18,28 +18,80 @@
 \begin{document}
 
 \maketitle
+
+\begin{abstract}
+	Una exploración sobre cómo extrapolar el concepto de producto matricial a ``matrices de mayor dimensión'' (cubrices, teseracrices, n-rices) y un estudio de sus propiedades (pares identidad, noción de inverso, correlación con transformaciones lineales...).
+\end{abstract}
+
 \tableofcontents
 \newpage
 
+\section{Introducción.}
+
+El concepto de matriz es sin lugar a duda inseparable del álgebra lineal, y define una estructura de vital importancia en la física, la computación, la inteligencia artificial e innumerables campos de conocimiento más.
+
+La raíz de esta relevancia yace en la facilidad que ofrece para trabajar con grandes conjuntos de información en el procesamiento de datos, por ejemplo, a través del producto matricial.
+
+En este breve artículo nos proponemos investigar acerca de una posible extrapolación de este concepto a dimensiones superiores. En esta tarea nos hallaremos en la necesidad de definir una noción de ``producto'' más general que traerá consigo problemas como la existencia de \textit{elementos neutros no únicos} y la necesidad de desarrollar una teoría sobre el significado de los \textit{elementos inversos}.
+
+Partiremos de una extrapolación a la tercera dimensión (a cuyos elementos bautizaremos como ``cubrices''), y cuando se halla estudiado con propiedad su naturaleza, pondremos a prueba la resiliencia de nuestra creación extrapolando hacia n dimensiones.
+
+Este desarrollo teórico no aspira a encontrar grandes usos para estos objetos matemáticos, sino más bien explorar las fronteras de la estructura del pensamiento humano. Por supuesto, estamos seguros de que a pesar de ello podrán resultar convenientes en algún contexto.
+
 \section{Definiciones.}
 
-Sean $A \in M_{m\times n\times o} (\mathbb{K}), B \in M_{p\times q\times r} (\mathbb{K}), \Gamma \in M_{s\times t\times u} (\mathbb{K}), \Delta \in M_{v\times w\times x} (\mathbb{K})$. Definiremos:
+\subsection{La estructura del $\mathbb{K}$-álgebra $M_n (\mathbb{K})$.}
+
+Sea $M_{m\times n\times o} (\mathbb{K}) = \{ [\mu_{ijk}], \alpha_{ijk} \in \mathbb{K}, 1 \le i,j,k \le m,n,o\}$ el conjunto de las \textit{cubrices} y $M_n (\mathbb{K}) = M_{n\times n\times n} (\mathbb{K})$ el conjunto de las \textit{cubrices cuadradas}. Por convención, una cubriz se representa por una letra griega mayúscula ($A, B, \Gamma \in M_{m\times n\times o}$) y sus elementos se representan por letras griegas mayúsculas o minúsculas con su respectivo subíndice ($A_{ijk} = \alpha_{ijk}, B_{ijk} = \beta_{ijk}, \Gamma_{ijk} = \gamma_{ijk}$).
+
+Podemos definir dos operaciones:
 
 \begin{itemize}
-	\item Suma: $\Delta = A + B \Leftrightarrow \Delta_{ijk} = A_{ijk} + B_{ijk}$
-	\item Producto cubricial: $\Delta = (A\cdot B\cdot \Gamma) \Leftrightarrow \Delta_{ijk} = \sum\limits_{l=1}^{z} A_{ilk} \cdot B_{ljk} \cdot \Gamma_{ijl}$, donde $z = n = p = u$, $v = \min \{m, s\}$, $w = \min \{q, t\}$ y $x = \min \{o, r\}$. (Piénsese en el máximo valor que puede alcanzar $l$ sin desbordar cada matriz).
-	\item Producto por un escalar: $\Delta = a\cdot A \Leftrightarrow \Delta_{ijk} = a \cdot A_{ijk}$.
-	\item Cubriz nula: $\vec{0}_{ijk} = 0$.
-	\item Cubriz opuesta: $A + (-A) = \vec{0} \Leftrightarrow (-A)_{ijk} = -(A_{ijk})$.
+	\item Suma de cubrices. $+: M_{m\times n\times o} \times M_{m\times n\times o} \rightarrow M_{m\times n\times o}, (A, B) \mapsto \Delta$ tal que $\Delta_{ijk} = A_{ijk} + B_{ijk}$.
+	\item Producto por un escalar. $\cdot: \mathbb{K} \times M_{m\times n\times o} \rightarrow M_{m\times n\times o}, (a, A) \mapsto \Delta$ tal que $\Delta_{ijk} = a \cdot A_{ijk}$.
 \end{itemize}
 
-% M_{nxnxn} es un espacio vectorial, pero el resto no porque el producto no es cerrado.
+Si $\mathbb{K}$ es un anillo, la n-upla $M_n (\mathbb{K}) = (M_n, \mathbb{K}, +, \cdot)$ es un $\mathbb{K}$-módulo. Si $\mathbb{K}$ es además un cuerpo, $M_n (\mathbb{K}))$ será un $\mathbb{K}$-espacio vectorial.
+
+Tenemos ahora la suficiente infraestructura para definir el \textit{producto entre cubrices}:
+
+$$\bigodot: M_{m\times n\times o} (\mathbb{K}) \times M_{p\times q\times r} (\mathbb{K}) \times M_{s\times t\times u} (\mathbb{K}) \rightarrow M_{v\times w\times x} (\mathbb{K}), (A, B, \Gamma) \mapsto \Delta$$ tal que se cumpla que:
+
+\begin{itemize}
+	\item $\Delta_{ijk} = \sum\limits_{l=1}^{n} A_{ilk} \cdot B_{ljk} \cdot \Gamma_{ijl}$.
+	\item $n = p = u$.
+	\item $v = \min{m, s}$.
+	\item $w = \min{q, t}$.
+	\item $x = \min{o, r}$.
+\end{itemize}
+
+Por supuesto, la n-upla $M_n (\mathbb{K}) = (M_n, \mathbb{K}, \bigodot)$ es un $\mathbb{K}$-álgebra.
+
+\subsection{Propiedades de las cubrices.}
+
+Resulta trivial demostrar las siguientes propiedades:
+
+\begin{itemize}
+	\item Conmutatividad de la suma: $A + B = B + A$.
+	\item Asociatividad de la suma: $(A + B) + \Gamma = A + (B + \Gamma)$.
+	\item Asociatividad del producto por un escalar: $a(bA) = (ab)A$.
+	\item Conmutatividad del producto por un escalar: $a(bA) = b(aA)$.
+	\item Distributividad del escalar: $a(A + B) = aA + aB$.
+	\item Distributividad de la cubriz: $(a + b)A = aA + bA$.
+	\item Asociatividad del producto cubriz: $(A \bigodot B \bigodot \Gamma) \bigodot \Delta \bigodot E = A \bigodot (B \bigodot \Gamma \bigodot \Delta) \bigodot E = A \bigodot B \bigodot (\Gamma \bigodot \Delta \bigodot E)$.
+	\item Existencia de una \textit{cubriz nula}: $\vec{0}_{ijk} = 0$.
+	\item Existencia de \textit{cubrices opuestas}: $A + (-A) = \vec{0} \Leftrightarrow (-A)_{ijk} = -(A_{ijk}) \forall A$.
+\end{itemize}
+
+Gracias a las propiedades asociativas podemos omitir el uso de paréntesis por comodidad. Por ejemplo, $A \bigodot (B \bigodot \Gamma \bigodot \Delta) \bigodot E = A \bigodot B \bigodot \Gamma \bigodot \Delta \bigodot E$.
+
+Es notable la ausencia de una noción de \textit{cubriz identidad} y otra de \textit{cubriz inversa}. Estos conceptos están sujetos a ciertas sutilezas, por lo que antes de explorarlos nos aseguraremos de haber obtenido una buena intuición sobre el aspecto de las cubrices y sus operaciones.
 
 \section{Representaciones gráficas.}
 
 \subsection{Bidimensional.}
 
-Representamos a la cubriz como una serie de matrices separadas por barras verticales, donde cada matriz sería una ``rodaja'' ($k=1$, $k=2$...) de la cubriz.
+Podemos representar cualquier cubriz como una serie de matrices separadas por barras verticales, donde cada matriz sería una ``rodaja'' ($k=1$, $k=2$...) de la cubriz. Esta es la representación estándar para imprenta.
 
 \[ \left(
 \begin{array}{c c c | c | c c c}
@@ -51,6 +103,8 @@ Representamos a la cubriz como una serie de matrices separadas por barras vertic
 
 \subsection{Tridimensional superficial.}
 
+En ocasiones bastará con una vista panorámica de la cubriz que no entre en detalle. Para este fin podemos organizar cada elemento en vóxeles que constituyan un prisma rectangular.
+
 \begin{figure}[H]
 	\includegraphics[width=\linewidth]{tridimensional_sup.png}
 	\caption{Representación tridimensional superficial de una cubriz con elementos $\alpha_{ijk}$.}
@@ -58,11 +112,12 @@ Representamos a la cubriz como una serie de matrices separadas por barras vertic
 
 \subsection{Tridimensional completa.}
 
+Para una vista completa pero que conserve la estructura tridimensional, podemos separar cada ``rodaja'' de la cubriz a lo largo de un subíndice. Esta representación puede asistir en el reconocimiento de patrones.
+
 \begin{figure}[H]
 	\includegraphics[width=\linewidth]{tridimensional_comp.png}
 	\caption{Representación tridimensional completa de una cubriz con elementos $\alpha_{ijk}$.}
 \end{figure}
-
 
 \subsection{Producto.}
 
@@ -73,11 +128,13 @@ Bajo la definición ofrecida, el elemento $ijk$ de la cubriz $\Delta = (AB\Gamma
 	\caption{Representación tridimensional superficial del producto $\Delta = (AB\Gamma)$.}
 \end{figure}
 
-Esto explica las restricciones que marcan las dimensiones. En el proceso iterativo de la suma, es necesario que coincidan el número de columnas de $A$ ($n$), el número de filas de $B$ ($p$) y el número de ``profundidades'' de $\Gamma$ ($u$). Es esta cantidad común la que denominamos $z$ en la definición. Además, $\Delta$ no podrá tener más filas que $A$ ni que $\Gamma$ (de lo contrario, accederíamos a valores inexistentes), ni más columnas que $B$ o $\Gamma$, ni más ``profundidades'' que $A$ o $B$.
+Esto explica las restricciones que marcan las dimensiones. En el proceso iterativo de la suma, es necesario que coincidan el número de columnas de $A$ ($n$), el número de filas de $B$ ($p$) y el número de ``profundidades'' de $\Gamma$ ($u$). Además, $\Delta$ no podrá tener más filas que $A$ ni que $\Gamma$ (de lo contrario, accederíamos a valores inexistentes), ni más columnas que $B$ o $\Gamma$, ni más ``profundidades'' que $A$ o $B$.
+
+% "Ver Anexo" e incluir el desarrollo largo.
 
 \section{En búsqueda de la identidad.}
 
-La matriz identidad $I$ es aquélla tal que $AI = IA = A$. Es interesante buscar una noción similar en las cubrices.
+La matriz identidad $I$ es aquélla que cumple que $AI = IA = A$. Es interesante buscar una noción similar en las cubrices.
 
 \subsection{Caso particular: $2\times 2\times 2$.}
 
@@ -279,6 +336,6 @@ Sea como fuere, es intrigante observar los patrones dibujados por cada Kronecker
 
 \section{Conclusión}
 
-Tras este análisis descubrimos que las cubrices conforman un conjunto verdaderamente interesante a la par que misterioso. Este desarrollo teórico no aspira a encontrar grandes usos para estos objetos matemáticos, sino más bien explorar una posible extrapolación al concepto de matriz.
+Tras este análisis descubrimos que las cubrices conforman un conjunto verdaderamente interesante a la par que misterioso. 
 
 \end{document}
