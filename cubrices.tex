@@ -3,6 +3,7 @@
 \author{Erik López de la Fuente}
 \date{\today}
 
+\usepackage[table]{xcolor}
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
 \usepackage{amsmath}
@@ -10,6 +11,8 @@
 \usepackage{enumerate}
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{makecell}
+\usepackage{hyperref}
 
 \counterwithin*{equation}{section}
 \counterwithin*{equation}{subsection}
@@ -142,7 +145,7 @@ La matriz identidad $I$ es aquélla que cumple que $AI = IA = A$. Es interesante
 
 \subsection{Unicidad de I.}
 
-Sean $A, I \in M_{n} (\mathbb{K})$. Partimos de tres asunciones:
+Sean $A, I \in M_{n} (\mathbb{K})$ tal que $IIA = A$. Partimos de tres asunciones:
 
 \begin{itemize}
 	\item Ningún elemento de $A$ es nulo.
@@ -165,13 +168,13 @@ Pero habrá casos como $I_{122}$ donde no será posible cumplir ambas condicione
 
 Al menos una de nuestras suposiciones debe estar errada, y sería óptimo que fuese la tercera (sobre la unicidad de la identidad).
 
+\newpage
+
 \subsection{La identidad como par.}
 
 Decimos que $I, J \in M_{n} (\mathbb{K})$ forman un \textit{par identidad} si cumplen que $AIJ = A$ (exploraremos más adelante la influencia del orden de los factores). Nuevamente utilizamos la definición del producto:
 
 $$A_{ijk} = (AIJ)_{ijk} = \sum\limits_{l=1}^{n} A_{ilk} I_{ljk} J_{ijl}$$
-
-\newpage
 
 Esta vez las condiciones que han de satisfacerse son:
 
@@ -208,14 +211,14 @@ Teniendo en cuenta que el par identidad no es conmutativo, es sencillo hacer un 
 	\item $I_3 J_3 A = A \Leftrightarrow I_3 = \delta_{jk}$ y $J_3 = \delta_{ik}$.
 \end{itemize}
 
+\newpage
+
 Con esto concluímos que existen tres pares identidad estándar fundamentados sobre las tres Kronecker. No es inmediatamente obvio qué patrón se puede esclarecer de este resultado. Una posibilidad es la siguiente:
 
 \begin{itemize}
 	\item Si $I$ es adyacente a $A$, $I = \delta_{ij}$. Si no, $I = \delta_{jk}$.
 	\item Si $J$ es adyacente a $A$, $J = \delta_{ik}$. Si no, $J = \delta_{jk}$.
 \end{itemize}
-
-\newpage
 
 Sea como fuere, es intrigante observar los patrones dibujados por cada Kronecker. Tomemos sus representaciones tridimensionales completas.
 
@@ -224,11 +227,61 @@ Sea como fuere, es intrigante observar los patrones dibujados por cada Kronecker
 	\caption{Representación tridimensional completa de $\delta_{ij}$, $\delta{jk}$ y $\delta{ik}$ (celdas iguales a $1$ en blanco e iguales a $0$ en negro).}
 \end{figure}
 
+\newpage
+
 \section{Noción de inversa.}
 
 \subsection{Par inversa.}
 
 Al igual que antes, buscamos inspiración en el área de las matrices, donde la matriz inversa $A^{-1}$ a otra matriz $A$ es aquélla que satisface que ${A\cdot A^{-1} = A^{-1} \cdot A = I}$. Ya ha quedado en evidencia la multiplicidad de las cubrices identidad, así que hemos de esperar lo mismo para las cubrices inversas.
+
+Decimos que $I$ y $J$ forman un \textit{par inversa} en $AIJ$ sobre $i, j$ si $(A\cdot I \cdot J) = \delta_{ij}$. Podemos afirmar lo mismo para pares en otros órdenes del producto ($IAJ$, $IJA$) y sobre otras cubrices kronecker ($d_{jk}$, $d_{ik}$). Nótese que la conmutatividad no está asegurada.
+
+\subsection{Todos los pares inversas.}
+
+Tras un desarrollo algo repetitivo, recogeremos en la siguiente tabla todos los pares inversa no redundantes existentes.
+
+\vspace{0.5cm}
+
+\begin{tabular}{ |c|c|c|c| } 
+	\hline
+		  & $\delta_{ij}$      & $\delta_{jk}$       & $\delta_{ik}$ \\
+	\hline
+	$AIJ$ & \makecell{$I_{ijk} = \delta_{ij} A_{ijk}^{-1}$ \\ $J_{ijk} = \delta_{ij}$}                          & \makecell{$I_{ijk} = \delta_{jk}$ \\ $J_{ijk} = \delta_{jk} A_{ijk}^{-1}$}                          & \makecell{$I_{ijk} = \delta_{ik} \sum\limits^n_{l=1}\delta_{il} A_{lll}^{-1}$ \\ $J_{ijk} = \delta_{ik}$} \\
+	\hline
+	$IAJ$ & \makecell{$I_{ijk} = \delta_{ij} A_{ijk}^{-1}$ \\ $J_{ijk} = \delta_{ij}$}                          & \makecell{$I_{ijk} = \delta_{jk} \sum\limits^n_{l=1} \delta_{jl} A_{lll}^{-1}$ \\ $J_{ijk} = \delta_{jk}$} & \makecell{$I_{ijk} = \delta_{ik}$ \\ $J_{ijk} = \delta_{ik} A_{ijk}^{-1}$} \\
+	\hline
+	$IJA$ & \makecell{$I_{ijk} = \delta_{ij} \sum\limits^n_{l=1} \delta_{il} A_{lll}^{-1}$ \\ $J_{ijk} = \delta_{ij}$} & \makecell{$I_{ijk} = \delta_{jk} A_{ijk}^{-1}$ \\ $J_{ijk} = \delta_{jk}$}                          & \makecell{$I_{ijk} = \delta_{ik}$ \\ $J_{ijk} = \delta_{ik} A_{ijk}^{-1}$} \\
+	\hline
+\end{tabular}
+
+\vspace{0.5cm}
+
+Es fácil notar que con unos simples cambios de nombre podemos obtener un resultado mucho más limpio. Sea $(A^{-1})_{ijk} = (A_{ijk})^{-1}$ y $\Delta_{ijk} = (\delta_{ij}\delta_{jk})$. Podemos repartir sus productos con $A$ en distintas columnas según la kronecker que resulte del mismo.
+
+\vspace{0.5cm}
+\begin{tabular}{ |c|c|c| } 
+	\hline
+	$\delta_{ij}$ & $\delta_{jk}$ & $\delta_{ik}$ \\
+	\hline
+	\makecell{$((\delta_{ij} A_{iii}^{-1}) \cdot (\delta_{ij}) \cdot A)$ \\ $(A \cdot A^{-1} \cdot \Delta)$ \\ $(A^{-1} \cdot A \cdot \Delta)$} &
+	\makecell{$((\delta_{jk} A_{jjj}^{-1}) \cdot A \cdot (\delta_{jk}))$ \\ $(A \cdot \Delta \cdot A^{-1})$ \\ $(A^{-1} \cdot \Delta \cdot A)$} &
+	\makecell{$(A \cdot (\delta_{ik} A_{kkk}^{-1}) \cdot (\delta_{ik}))$ \\ $(\Delta \cdot A \cdot A^{-1})$ \\ $(\Delta \cdot A^{-1} \cdot A)$} \\
+	\hline
+\end{tabular}
+\vspace{0.5cm}
+
+Es más que notable la excepción del primer caso. No parece posible reordenar los términos de esa expresión de manera satisfactoria.
+
+\newpage
+
+\section{Implementación programática.}
+
+El estudio de este concepto matemático se vuelve harto tedioso sin asistencia computacional, entonces será menester desarrollar herramientas que lo hagan posible.
+
+Ofrecemos el siguiente repositorio de GitHub creado junto a este documento: \href{https://github.com/erikucenik/cubrices}{https://github.com/erikucenik/cubrices}.
+
+\iffalse
 
 Decimos que $(A_{ij1}^{-1})$ y $(A_{ij2}^{-1})$ forman un \textit{par inversa} sobre $i,j$ si ${A\cdot (A_{ij1}^{-1}) \cdot (A_{ij2}^{-1}) = \delta_{ij}}$. (En este caso, $(A_{ij1}^{-1})$ debe pensarse como una sola expresión o nombre. Sus subíndices son parte del nombre, por lo que algo como ``$(A_{111}^{-1})$'' carecería de sentido en este contexto).
 
@@ -269,6 +322,8 @@ Hemos tratado con el par inversa sobre $i, j$ y un orden de los factores concret
 Parece ser que es posible conmutar $A$ con $(A_{ab}^{-1})$ sin alterar el resultado, y que la posición del delta de Kronecker en la expresión determina bajo qué subíndices funcionará como par inversa.
 
 Nótese que aunque el par $(A, A^{-1})$ parezca comportarse como un par identidad, esto no es cierto cuando se opera con otras cubrices.
+
+\fi
 
 \section{Conclusión}
 
