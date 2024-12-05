@@ -20,7 +20,7 @@
 \maketitle
 
 \begin{abstract}
-	Una exploración sobre cómo extrapolar el concepto de producto matricial a ``matrices de mayor dimensión'' (cubrices, teseracrices, n-rices) y un estudio de sus propiedades (pares identidad, noción de inverso, correlación con transformaciones lineales...).
+	Una exploración sobre cómo extrapolar el concepto de matriz a la tercera dimensión (\textit{cubriz}), con el correspondiente análisis de sus propiedades y nociones básicas (producto, par identidad, par inverso, representación gráfica...).
 \end{abstract}
 
 \tableofcontents
@@ -28,13 +28,13 @@
 
 \section{Introducción.}
 
-El concepto de matriz es sin lugar a duda inseparable del álgebra lineal, y define una estructura de vital importancia en la física, la computación, la inteligencia artificial e innumerables campos de conocimiento más.
+El concepto de matriz es, sin lugar a dudas, inseparable del álgebra lineal y constituye una estructura fundamental en la física, la computación, la inteligencia artificial e innumerables campos de conocimiento.
 
 La raíz de esta relevancia yace en la facilidad que ofrece para trabajar con grandes conjuntos de información en el procesamiento de datos, por ejemplo, a través del producto matricial.
 
-En este breve artículo nos proponemos investigar acerca de una posible extrapolación de este concepto a dimensiones superiores. En esta tarea nos hallaremos en la necesidad de definir una noción de ``producto'' más general que traerá consigo problemas como la existencia de \textit{elementos neutros no únicos} y la necesidad de desarrollar una teoría sobre el significado de los \textit{elementos inversos}.
+En este breve artículo investigaremos una posible extrapolación de este concepto a dimensiones superiores. En esta tarea nos hallaremos en la necesidad de definir una noción de \textit{producto} más general que traerá consigo problemas como la existencia de \textit{elementos neutros no únicos} y la necesidad de desarrollar una teoría sobre el significado de los \textit{elementos inversos}.
 
-Partiremos de una extrapolación a la tercera dimensión (a cuyos elementos bautizaremos como ``cubrices''), y cuando se halla estudiado con propiedad su naturaleza, pondremos a prueba la resiliencia de nuestra creación extrapolando hacia n dimensiones.
+Partiremos de una extrapolación a la tercera dimensión (a cuyos elementos bautizaremos ``cubrices''), y cuando se haya estudiado con propiedad su naturaleza, pondremos a prueba la resiliencia de nuestra creación extrapolando hacia n dimensiones.
 
 Este desarrollo teórico no aspira a encontrar grandes usos para estos objetos matemáticos, sino más bien explorar las fronteras de la estructura del pensamiento humano. Por supuesto, estamos seguros de que a pesar de ello podrán resultar convenientes en algún contexto.
 
@@ -42,7 +42,7 @@ Este desarrollo teórico no aspira a encontrar grandes usos para estos objetos m
 
 \subsection{La estructura del $\mathbb{K}$-álgebra $M_n (\mathbb{K})$.}
 
-Sea $M_{m\times n\times o} (\mathbb{K}) = \{ [\mu_{ijk}] \in \mathbb{K}, 1 \le i,j,k; i \le m, j \le n, k \le o\}$ el conjunto de las \textit{cubrices} y $M_n (\mathbb{K}) = M_{n\times n\times n} (\mathbb{K})$ el conjunto de las \textit{cubrices cuadradas}. Por convención, una cubriz se representa por una letra griega mayúscula ($A, B, \Gamma, \Delta \in M_{m\times n\times o}$) y sus elementos se representan por letras griegas mayúsculas o minúsculas con su respectivo subíndice ($A_{ijk} = \alpha_{ijk}, B_{ijk} = \beta_{ijk}, \Gamma_{ijk} = \gamma_{ijk}, \Delta_{ijk} = \delta_{ijk}$).
+Definimos $M_{m\times n\times o} (\mathbb{K}) = \{ [\mu_{ijk}] \in \mathbb{K}, 1 \le i,j,k; i \le m, j \le n, k \le o\}$ como el conjunto de las \textit{cubrices} y $M_n (\mathbb{K}) = M_{n\times n\times n} (\mathbb{K})$ como el conjunto de las \textit{cubrices cúbicas}. Por convención, una cubriz se representa con una letra griega mayúscula ($A, B, \Gamma, \Delta \in M_{m\times n\times o}$) y sus elementos se representan con letras griegas mayúsculas o minúsculas y su respectivo subíndice ($A_{ijk} = \alpha_{ijk}, B_{ijk} = \beta_{ijk}, \Gamma_{ijk} = \gamma_{ijk}, \Delta_{ijk} = \delta_{ijk}$).
 
 %Sea $M_{m\times n\times o} (\mathbb{K}) = \{ [\mu_{ijk}] \in \mathbb{K}, 1 \le i,j,k \le m,n,o\}$ 
 
@@ -138,7 +138,7 @@ Esto explica las restricciones que marcan las dimensiones. En el proceso iterati
 
 \section{Noción de identidad.}
 
-La matriz identidad $I$ es aquélla que cumplen que $AI = IA = A$. Es interesante buscar una noción similar en las cubrices.
+La matriz identidad $I$ es aquélla que cumple que $AI = IA = A$. Es interesante buscar una noción similar en las cubrices.
 
 \subsection{Unicidad de I.}
 
@@ -224,11 +224,57 @@ Sea como fuere, es intrigante observar los patrones dibujados por cada Kronecker
 	\caption{Representación tridimensional completa de $\delta_{ij}$, $\delta{jk}$ y $\delta{ik}$ (celdas iguales a $1$ en blanco e iguales a $0$ en negro).}
 \end{figure}
 
+\section{Noción de inversa.}
+
+\subsection{Par inversa.}
+
+Al igual que antes, buscamos inspiración en el área de las matrices, donde la matriz inversa $A^{-1}$ a otra matriz $A$ es aquélla que satisface que ${A\cdot A^{-1} = A^{-1} \cdot A = I}$. Ya ha quedado en evidencia la multiplicidad de las cubrices identidad, así que hemos de esperar lo mismo para las cubrices inversas.
+
+Decimos que $(A_{ij1}^{-1})$ y $(A_{ij2}^{-1})$ forman un \textit{par inversa} sobre $i,j$ si ${A\cdot (A_{ij1}^{-1}) \cdot (A_{ij2}^{-1}) = \delta_{ij}}$. (En este caso, $(A_{ij1}^{-1})$ debe pensarse como una sola expresión o nombre. Sus subíndices son parte del nombre, por lo que algo como ``$(A_{111}^{-1})$'' carecería de sentido en este contexto).
+
+Por definición del producto:
+
+$$\delta_{ij} = \sum\limits_{l=1}^{n} A_{ilk} \cdot (A_{ij1}^{-1})_{ljk} \cdot (A_{ij2}^{-1})ijl$$
+
+Si $i = j$:
+
+$$1 = \sum\limits_{l=1}^{n} A_{ilk} \cdot (A_{ij1}^{-1})_{ljk} \cdot (A_{ij2}^{-1})_{ijl}$$
+
+Mientras que si $i \neq j$:
+
+$$0 = \sum\limits_{l=1}^{n} A_{ilk} \cdot (A_{ij1}^{-1})_{ljk} \cdot (A_{ij2}^{-1})_{ijl}$$
+
+Manteniendo nuestra suposición de que ningún elemento de $A$ tiene por qué ser cero, obtenemos lo siguiente:
+
+$$A_{ilk} \cdot (A_{ij1}^{-1})_{ljk} = 1 \Rightarrow (A_{ij1}^{-1})_{ljk} = (A_{ilk})^{-1}$$
+$$(A_{ij1}^{-1})_{ljk} \cdot (A_{ij2}^{-1})_{ijl} = 0$$
+
+Nuevamente nos enfrentamos a infinitas soluciones, pero la que aporta una interpretación más rica es la que establece que si ${i \neq j}$, entonces ${(A_{ij1}^{-1})_{ijk} = (A_{ij2}^{-1})_{ijk} = 0}$. Esta decisión nos permite arrivar a las siguientes dos conclusiones:
+
+$$(A_{ij1}^{-1})_{ijk} = \delta_{ij} \cdot (A_{ijk})^{-1}$$
+$$(A_{ij2}^{-1})_{ijk} = \delta_{ij}$$
+
+(Nótese que el subíndice $l$ es mudo y puede ser sustituído por el equivalente posicional).
+
+\subsection{Generalización del par inversa.}
+
+Hemos tratado con el par inversa sobre $i, j$ y un orden de los factores concretos, pero haciendo un desarrollo similar sobre el resto de órdenes descubrimos que:
+
+\begin{itemize}
+	\item $A(A_{ij}^{-1})\delta_{ij} = (A_{ij}^{-1})A\delta_{ij} = \delta_{ij}$.
+	\item $\delta_{ik}A(A_{ik}^{-1}) = \delta_{ik}(A_{ik}^{-1})A = \delta_{ik}$.
+	\item $A\delta_{jk}(A_{jk}^{-1}) = (A_{jk}^{-1})\delta_{jk}A = \delta_{jk}$.
+\end{itemize}
+
+Parece ser que es posible conmutar $A$ con $(A_{ab}^{-1})$ sin alterar el resultado, y que la posición del delta de Kronecker en la expresión determina bajo qué subíndices funcionará como par inversa.
+
+Nótese que aunque el par $(A, A^{-1})$ parezca comportarse como un par identidad, esto no es cierto cuando se opera con otras cubrices.
+
 \section{Conclusión}
 
 Tras este análisis descubrimos que las cubrices conforman un conjunto verdaderamente interesante a la par que misterioso. Contrario a lo que se podría presuponer, este álgebra no es retrocompatible con el de las matrices bidimensionales, si bien es cierto que los conjuntos subyacentes sí lo son.
 
-Hemos excluído de este artículo numerosos asuntos de vital importancia que podrían ser de interés para futuras investigaciones. Nociones como el ``determinante'', el ``rango'', las ``cubrices inversas'', o una definición de igualdad entre cubrices que hiciese quizás viable su retrocompatibilidad con las matrices.
+Hemos excluido de este artículo numerosos asuntos de vital importancia que podrían ser de interés para futuras investigaciones. Nociones como el ``determinante'', el ``rango'', o una definición de igualdad entre cubrices que hiciese quizás viable su retrocompatibilidad con las matrices.
 
 Esperamos que el presente documento sirva como incentivo para implantar la curiosidad por este álgebra en la mente del lector.
 
