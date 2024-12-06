@@ -1,0 +1,145 @@
+\appendix
+\section{Apéndice}
+
+\subsection{Desarrollo completo del producto por una hipotética cubriz identidad única en $M_2 (\mathbb{K})$.}
+
+La expresión $A = IIA$ puede ser desarrollada por la definición del producto cubricial:
+
+\begin{equation}
+A_{111} = I_{111} I_{111} A_{111} + I_{121} I_{211} A_{112}
+\end{equation}
+
+\begin{equation}
+A_{112} = I_{112} I_{112} A_{111} + I_{122} I_{212} A_{112}
+\end{equation}
+
+\begin{equation}
+A_{121} = I_{111} I_{121} A_{121} + I_{121} I_{221} A_{122}
+\end{equation}
+
+\begin{equation}
+A_{122} = I_{112} I_{122} A_{121} + I_{122} I_{222} A_{122}
+\end{equation}
+
+\begin{equation}
+A_{211} = I_{211} I_{111} A_{211} + I_{221} I_{211} A_{212}
+\end{equation}
+
+\begin{equation}
+A_{212} = I_{212} I_{112} A_{211} + I_{222} I_{212} A_{212}
+\end{equation}
+
+\begin{equation}
+A_{221} = I_{211} I_{121} A_{221} + I_{221} I_{221} A_{222}
+\end{equation}
+
+\begin{equation}
+A_{222} = I_{212} I_{122} A_{221} + I_{222} I_{222} A_{222}
+\end{equation}
+
+En base a ese sistema derivamos lo siguiente:
+
+\begin{enumerate}[(a)]
+	\item Por $(1) \Rightarrow I_{111} = 1$.
+	\item Por $(8) \Rightarrow I_{222} = 1$.
+	\item Por $(3)$ y $(a) \Rightarrow I_{121} = 1$.
+	\item Por $(3)$ y $(c) \Rightarrow I_{221} = 0$.
+	\item Por $(6)$ y $(b) \Rightarrow I_{212} = 1$.
+	\item Por $(2)$ y $(e) \Rightarrow I_{122} = 1$.
+\end{enumerate}
+
+Por $(8)$, o $I_{212}$ o $I_{122}$ deben ser $0$, pero por $(e)$ y $(f)$, $I_{212} = I_{122} = 1 \neq 0$. Surge la misma contradicción al probar con $IAI$ y $AII$.
+
+\subsection{Desarrollo completo del producto por un par identidad en $M_2 (\mathbb{K})$.}
+
+\begin{equation}
+A_{111} = A_{111} I_{111} J_{111} + A_{121} I_{211} J_{112}
+\end{equation}
+
+\begin{equation}
+A_{112} = A_{112} I_{112} J_{111} + A_{122} I_{212} J_{112}
+\end{equation}
+
+\begin{equation}
+A_{121} = A_{111} I_{121} J_{121} + A_{121} I_{221} J_{122}
+\end{equation}
+
+\begin{equation}
+A_{122} = A_{112} I_{122} J_{121} + A_{122} I_{222} J_{122}
+\end{equation}
+
+\begin{equation}
+A_{211} = A_{211} I_{111} J_{211} + A_{221} I_{211} J_{212}
+\end{equation}
+
+\begin{equation}
+A_{212} = A_{212} I_{112} J_{211} + A_{222} I_{212} J_{212}
+\end{equation}
+
+\begin{equation}
+A_{221} = A_{211} I_{121} J_{221} + A_{221} I_{221} J_{222}
+\end{equation}
+
+\begin{equation}
+A_{222} = A_{212} I_{122} J_{221} + A_{222} I_{222} J_{222}
+\end{equation}
+
+De manera análoga, derivamos que:
+
+\begin{enumerate}[(a)]
+	\item Por $(1) \Rightarrow I_{111} \neq 0 \neq J_{111}$ y $I_{111} = J_{111}^{-1}$.
+	\item Por $(8) \Rightarrow I_{222} \neq 0 \neq J_{222}$ y $I_{222} = J_{222}^{-1}$.
+	\item Por $(2)$ y $(a) \Rightarrow I_{112} = J_{111}^{-1} = I_{111} \neq 0$.
+	\item Por $(6)$ y $(c) \Rightarrow I_{112} = J_{211}^{-1} \neq 0 \Rightarrow J_{211} \neq 0$.
+	\item Por $(5)$ y $(d) \Rightarrow J_{211} = I_{111}^{-1} = J_{111}$.
+	\item Por $(7)$ y $(b) \Rightarrow I_{221} = J_{222}^{-1} \neq 0$.
+	\item Por $(3)$, $(4)$ y $(f) \Rightarrow J_{122} = I_{221}^{-1} = I_{222}^{-1} = J_{222}^{-1}$.
+	\item Por $(g)$ y $(b) \Rightarrow I_{222} = J_{222}^{-1} = I_{222}^{-1} \Rightarrow I_{222}^2 = 1 \Rightarrow I_{222} = 1 = J_{222}$.
+\end{enumerate}
+
+\newpage
+
+Recapitulando:
+
+\begin{itemize}
+	\item $I_{221} = J_{122} = I_{222} = J_{222} = 1$.
+	\item $J_{211}^{-1} = I_{111} = J_{111}^{-1} = I_{112}$.
+	\item El resto de términos:
+
+	\begin{itemize}
+		\item $I_{211} J_{112} = 0$.
+		\item $I_{212} J_{112} = 0$.
+		\item $I_{121} J_{121} = 0$.
+		\item $I_{122} J_{121} = 0$.
+		\item $I_{211} J_{212} = 0$.
+		\item $I_{212} J_{212} = 0$.
+		\item $I_{121} J_{221} = 0$.
+		\item $I_{122} J_{221} = 0$.
+	\end{itemize}
+\end{itemize}
+
+\begin{itemize}
+	\item $1 = I_{221} = J_{122} = I_{222} = J_{222} = J_{211}^{-1} = I_{111} = J_{111}^{-1} = I_{112}$.
+	\item $0 = I_{211} = J_{112} = I_{212} = J_{112} = I_{121} = J_{121} = I_{122} = J_{121} = I_{211} = J_{212} = I_{212} = J_{212} = I_{121} = J_{221} = I_{122} = J_{221}$.
+\end{itemize}
+
+Vemos que siempre se cumple que:
+
+\begin{itemize}
+	\item Si $j = 1 \rightarrow I_{1jk} = J_{ij1} = 1$ y $I_{2jk} = J_{ij2} = 0$.
+	\item Si $j = 2 \rightarrow I_{1jk} = J_{ij1} = 0$ y $I_{2jk} = J_{ij2} = 1$.
+\end{itemize}
+
+El patrón se vuelve trivial si vemos qué ocurre con una cubriz $3 \times 3 \times 3$:
+
+$$(AIJ)_{ijk} = A_{i1k} I_{1jk} J_{ij1} + A_{i2k} I_{2jk} J_{ij2} + A_{i3k} I_{3jk} J_{ij3}$$
+
+\begin{itemize}
+	\item Si $j = 1 \rightarrow I_{1jk} = J_{ij1} = 1$ y $I_{2jk} = J_{ij2} = 0$ y $I_{3jk} = J_{ij3} = 0$.
+	\item Si $j = 2 \rightarrow I_{1jk} = J_{ij1} = 0$ y $I_{2jk} = J_{ij2} = 1$ y $I_{3jk} = J_{ij3} = 0$.
+	\item Si $j = 3 \rightarrow I_{1jk} = J_{ij1} = 0$ y $I_{2jk} = J_{ij2} = 0$ y $I_{3jk} = J_{ij3} = 1$.
+\end{itemize}
+
+Es decir, para que $(AIJ)_{ijk} = A_{ijk}$, debe cumplirse que $I_{ljk} = J_{ijl} = \delta_{jl}$.
+
+Como descubrimos en la sección 4.2, gracias a que los subíndices son mudos podemos llegar a las tres Kronecker.
