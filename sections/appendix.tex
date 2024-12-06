@@ -143,3 +143,93 @@ $$(AIJ)_{ijk} = A_{i1k} I_{1jk} J_{ij1} + A_{i2k} I_{2jk} J_{ij2} + A_{i3k} I_{3
 Es decir, para que $(AIJ)_{ijk} = A_{ijk}$, debe cumplirse que $I_{ljk} = J_{ijl} = \delta_{jl}$.
 
 Como descubrimos en la sección 4.2, gracias a que los subíndices son mudos podemos llegar a las tres Kronecker.
+
+\subsection{Desarrollo completo de los pares inversa.}
+
+Dado $A$, nuestro objetivo es hallar sus pares inversa sobre dos componentes en cualquier orden de producto. Trataremos los productos que conmuten $I$ con $J$ como casos iguales (justificar $AIJ$ justificará también $AJI$), dado que el resultado de esto será solo conmutar los nombres de los valores.
+
+\subsubsection{$AIJ$ sobre $\delta_{ij}$.}
+
+Por definición:
+
+$$(AIJ)_{ijk} = \delta_{ij} = \sum\limits^{n}_{l = 1} A_{ilk} I_{ljk} J_{ijl}$$
+
+Podemos explicar esta expresión en palabras: ``Si $i \neq j$, entonces $I_{ljk} J_{ijl} = 0$. Si $i = j$, y si además $l$ toma el valor de $j$, entonces $I_{ljk} = A^{-1}_{ilk}$ y $J_{ijl} = 1$''. Es vital notar que el hecho de que $l$ tome el valor de $j$ implica que el primer subíndice de $I_{ljk}$ también toma el valor de $j$. Al ser los subíndices mudos, esto equivale a que $i$ sea igual a $j$ (pero \textbf{solo} en el caso de $I$, pues en otros términos el iterador $l$ ocupará la posición de otro subíndice). Con esto en mente, expresar lo mismo utilizando deltas de kronecker es automático:
+
+$$I_{ijk} = \delta_{ij} \delta_{ij} A_{ijk}^{-1} = \delta_{ij} A_{ijk}^{-1}$$
+$$J_{ijk} = \delta_{ij} \approx \delta_{ij} \delta_{jk}$$
+
+En $I$, el primer $\delta_{ij}$ representa la condición que impone la delta de kronecker a la que aspiramos a llegar, mientras que el segundo $\delta_{ij}$ representa la condición que impone el iterador $l$ pero expresada en términos de subíndices de $I$. Como es evidente, $\delta_{ij} \delta_{ij} = \delta_{ij}$.
+
+En $J$, el término $\delta_{jk}$ representa la condición de ``...si $i = j$ pero $l$ no toma el valor de $j$...'' (lo que en $J$ equivale a que $k$ no tome el valor de $j$). Este término es innecesario, ya que solo se requiere la anulación del producto (y no de ambos factores), y esto ya se satisface gracias al $\delta_{ij}$ presente en $I$. Las condiciones impuestas sobre los valores de $I$ y $J$ quedan perfectamente representadas en el siguiente algoritmo:
+
+\begin{lstlisting}[escapeinside={(*}{*)}]
+Si i == j:
+  Si l == j:
+    (*$I_{ljk} = A_{ilk}^{-1}$*)
+    (*$J_{ijl} = 1$*)
+  Si no:
+    (*$I_{ljk} J_{ijl} = 0$*)
+Si no:
+  (*$I_{ljk} J_{ijl} = 0$*)	
+\end{lstlisting}
+
+En este artículo omitimos la inclusión del segundo factor, tanto por motivos estéticos como prácticos (véase la siguiente sección del anexo).
+
+\subsubsection{$AIJ$ sobre $jk$.}
+
+El proceso es casi idéntico al anterior, pero conmutaremos $I$ con $J$ (los valores inversos pasarán a estar en $J$, y los neutros en $I$). La necesidad de hacer esto yace en el deseo de coordinar los subíndices de $I$ y $J$ con el iterador de tal manera que obtengamos expresiones fácilmente maleables como $\delta_{jk} \delta_{jk}$.
+
+\subsubsection{$AIJ$ sobre $ik$.}
+
+Este caso requiere algo de atención. Sea $a = i = k$ (en caso de que $i \neq k$, el producto de $I_{ijk}$ y $J_{ijk}$ será cero):
+
+$$\delta_{aa} = 1 = \sum\limits_{l = 1}^{n} A_{ala} I_{lja} J_{ajl}$$
+
+Hasta ahora, $I_{ijk}$ siempre había dependido del inverso de $A_{ijk}$, sin embargo este caso rompe esa relación. Es por eso que tenemos que buscar otro criterio para no anular a $I$ y a $J$. Nuevamente por una mezcla de motivos estéticos y proceso de eliminación, establecemos lo siguiente: que cuando los índices de $I$ y $J$ sean iguales, su producto con $A_{ijk}$ dará $1$ (y cuando no, $0$).
+
+Es fácil descubrir que los subíndices de $I$ y $J$ serán iguales cuando $l$ tome el valor de $a$. Es decir:
+
+$$I_{aja} = A_{aaa}^{-1}$$
+$$J_{aja} = 1$$
+
+O expresado con $i$, $j$ y $k$:
+
+$$I_{ijk} = \delta_{ik} A_{iii}^{-1} = \delta_{ik} A_{kkk}^{-1}$$
+$$J_{ijk} = \delta_{ik}$$
+
+\subsubsection{Et cetera.}
+
+Hemos trabajado con $AIJ$, pero podríamos haber hecho los mismos procedimientos sobre $IAJ$ e $IJA$. Todos los casos se pueden resolver de forma análoga con uno de los tres métodos anteriores, y el resultado final es la primera tabla de la sección 5.2.
+
+\subsection{Simplificación de los pares inversa.}
+
+Las expresiones de los pares inversa pueden ser simplificadas con bastante éxito tan solo reordenando algunos términos.
+
+Como primer y único ejemplo usaremos el caso de $IJA$ sobre $\delta_{ik}$. Según la tabla, 
+
+$$I_{ijk} = \delta_{ik}$$
+$$J_{ijk} = \delta_{ik} A_{ijk}^{-1}$$
+
+Insertando eso en la definición del producto:
+
+$$(IJA)_{ijk} = (\delta_{ik})_{ilk} \cdot (\delta_{ik} A_{ijk}^{-1})_{ljk} \cdot A$$
+
+Y sustituyendo los subíndices:
+
+$$(IJA)_{ijk} = (\delta_{ik}) \cdot (\delta_{lk} A_{ljk}^{-1}) \cdot A$$
+
+Gracias a que $\mathbb{K}$ es asociativo y conmutativo, podemos reescribir esta expresión tal que:
+
+$$(IJA)_{ijk} = (\delta_{ik} \delta_{lk}) \cdot A_{ljk}^{-1}) \cdot A$$
+
+Y esto es equivalente a tener otro par inversa $(I', J')$ donde:
+
+$$I'_{ijk} = \delta_{ik} \delta_{jk}$$
+$$J'_{ijk} = (A_{ijk})^{-1}$$
+
+($l$ se sustituiría en $k$ para $I$ y en $i$ para $J$).
+
+Para dar algo de sentido semántico a este par inversa, podemos llamar $\Delta$ a $I'$ y $A^{-1}$ a $J'$.
+
+La misma receta es aplicable al resto de casos (excluyendo aquéllos de la diagonal positiva en la primera tabla de la sección 5.2), y produce la segunda tabla de la sección 5.2.
