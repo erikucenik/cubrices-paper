@@ -4,34 +4,34 @@
 
 Al igual que antes, buscamos inspiración en el área de las matrices, donde la matriz inversa $A^{-1}$ a otra matriz $A$ es aquélla que satisface que ${A\cdot A^{-1} = A^{-1} \cdot A = I}$. Ya ha quedado en evidencia la multiplicidad de las cubrices identidad, así que hemos de esperar lo mismo para las cubrices inversas.
 
-Decimos que $I$ y $J$ forman un \textit{par inversa} en $AIJ$ sobre $i, j$ si $(A\cdot I \cdot J) = \delta_{ij}$. Podemos afirmar lo mismo para pares en otros órdenes del producto ($IAJ$, $IJA$) y sobre otras cubrices kronecker ($d_{jk}$, $d_{ik}$). Nótese que la conmutatividad no está asegurada.
+Decimos que $I$ y $J$ forman un \textit{par inversa} en $AIJ$ sobre $i, j$ si $(AIJ) = \Delta_{ij}$. Podemos afirmar lo mismo para pares en otros órdenes del producto ($IAJ$, $IJA$) y sobre otras cubrices kronecker ($\Delta_{jk}$, $\Delta_{ik}$). Nótese que la conmutatividad no está asegurada.
 
 \subsection{Todos los pares inversas.}
 
-Tras un desarrollo algo repetitivo, recogeremos en la siguiente tabla todos los pares inversa no redundantes existentes.
+Tras un desarrollo algo repetitivo (ver Anexo 3), recogeremos en la siguiente tabla todos los pares inversa no redundantes existentes.
 
 \vspace{0.5cm}
 
 \begin{tabular}{ |c|c|c|c| } 
 	\hline
-		  & $\delta_{ij}$      & $\delta_{jk}$       & $\delta_{ik}$ \\
+		  & $\Delta_{ij}$      & $\Delta_{jk}$       & $\Delta_{ik}$ \\
 	\hline
-	$AIJ$ & \makecell{$I_{ijk} = \delta_{ij} A_{ijk}^{-1}$ \\ $J_{ijk} = \delta_{ij}$}                          & \makecell{$I_{ijk} = \delta_{jk}$ \\ $J_{ijk} = \delta_{jk} A_{ijk}^{-1}$}                          & \makecell{$I_{ijk} = \delta_{ik} \sum\limits^n_{l=1}\delta_{il} A_{lll}^{-1}$ \\ $J_{ijk} = \delta_{ik}$} \\
+	$AIJ$ & \makecell{$I_{ijk} = \delta_{ij} A_{ijk}^{-1}$ \\ $J_{ijk} = \delta_{ij}$}                          & \makecell{$I_{ijk} = \delta_{jk}$ \\ $J_{ijk} = \delta_{jk} A_{ijk}^{-1}$}                          & \makecell{$I_{ijk} = \delta_{ik} A_{kkk}^{-1}$ \\ $J_{ijk} = \delta_{ik}$} \\
 	\hline
-	$IAJ$ & \makecell{$I_{ijk} = \delta_{ij} A_{ijk}^{-1}$ \\ $J_{ijk} = \delta_{ij}$}                          & \makecell{$I_{ijk} = \delta_{jk} \sum\limits^n_{l=1} \delta_{jl} A_{lll}^{-1}$ \\ $J_{ijk} = \delta_{jk}$} & \makecell{$I_{ijk} = \delta_{ik}$ \\ $J_{ijk} = \delta_{ik} A_{ijk}^{-1}$} \\
+	$IAJ$ & \makecell{$I_{ijk} = \delta_{ij} A_{ijk}^{-1}$ \\ $J_{ijk} = \delta_{ij}$}                          & \makecell{$I_{ijk} = \delta_{jk} A_{jjj}^{-1}$ \\ $J_{ijk} = \delta_{jk}$} & \makecell{$I_{ijk} = \delta_{ik}$ \\ $J_{ijk} = \delta_{ik} A_{ijk}^{-1}$} \\
 	\hline
-	$IJA$ & \makecell{$I_{ijk} = \delta_{ij} \sum\limits^n_{l=1} \delta_{il} A_{lll}^{-1}$ \\ $J_{ijk} = \delta_{ij}$} & \makecell{$I_{ijk} = \delta_{jk} A_{ijk}^{-1}$ \\ $J_{ijk} = \delta_{jk}$}                          & \makecell{$I_{ijk} = \delta_{ik}$ \\ $J_{ijk} = \delta_{ik} A_{ijk}^{-1}$} \\
+	$IJA$ & \makecell{$I_{ijk} = \delta_{ij} A_{iii}^{-1}$ \\ $J_{ijk} = \delta_{ij}$} & \makecell{$I_{ijk} = \delta_{jk} A_{ijk}^{-1}$ \\ $J_{ijk} = \delta_{jk}$}                          & \makecell{$I_{ijk} = \delta_{ik}$ \\ $J_{ijk} = \delta_{ik} A_{ijk}^{-1}$} \\
 	\hline
 \end{tabular}
 
 \vspace{0.5cm}
 
-Es fácil notar que con unos simples cambios de nombre podemos obtener un resultado mucho más limpio. Sea $(A^{-1})_{ijk} = (A_{ijk})^{-1}$ y $\Delta = (\delta_{ij}\delta_{jk})$. Podemos repartir sus productos con $A$ en distintas columnas según la kronecker que resulte del mismo.
+Es fácil notar que con unos simples cambios de nombre podemos obtener un resultado mucho más limpio (Ver Anexo 4). Sea $(A^{-1})_{ijk} = (A_{ijk})^{-1}$ y $\Delta = (\delta_{ij}\delta_{jk})$. Podemos repartir sus productos con $A$ en distintas columnas según la kronecker que resulte del mismo.
 
 \vspace{0.5cm}
 \begin{tabular}{ |c|c|c| } 
 	\hline
-	$\delta_{ij}$ & $\delta_{jk}$ & $\delta_{ik}$ \\
+	$\Delta_{ij}$ & $\Delta_{jk}$ & $\Delta_{ik}$ \\
 	\hline
 	\makecell{$(A \cdot A^{-1} \cdot \Delta)$ \\ $(A^{-1} \cdot A \cdot \Delta)$} &
 	\makecell{$(A \cdot \Delta \cdot A^{-1})$ \\ $(A^{-1} \cdot \Delta \cdot A)$} &

@@ -1,33 +1,34 @@
 \section{Noción de identidad.}
 
-La matriz identidad $I$ es aquélla que cumple que $AI = IA = A$. Es interesante buscar una noción similar en las cubrices.
+La matriz identidad $I$ es aquélla que cumple que $AI = IA = A$. Es interesante buscar una noción similar en las cubrices, sin embargo, pronto descubrimos que nuestras expectativas sobre esta se ven desafiadas.
 
 \subsection{Unicidad de I.}
 
-Sean $A, I \in M_{n} (\mathbb{K})$ tal que $IIA = A$. Partimos de tres asunciones:
+Sean $A, I \in M_{n} (\mathbb{K})$ tal que $IIA = A$ (el razonamiento funciona independientemente del orden del producto). Partimos de tres asunciones:
 
 \begin{itemize}
 	\item Ningún elemento de $A$ es nulo.
-	\item Los elementos de $I$ no dependen de $A$.
-	\item La matriz identidad $I$ es única.
+	\item Los elementos de $I$ no dependen de los de $A$.
+	\item La cubriz identidad $I$ es única.
 \end{itemize}
 
 Por definición:
 
 $$A_{ijk} = (I \cdot I \cdot A)_{ijk} = \sum\limits_{l=1}^{n} I_{ilk} \cdot I_{ljk} \cdot A_{ijl}$$
 
-y para que esto sea cierto
+Como suponemos que $I$ no depende de $A$, la expresión solo puede producir $A_{ijk}$ a partir del término $A_{ijl}$ del sumatorio. En otras palabras, $I_{ilk} I_{ljk} = \delta_{lk}$, donde $\delta_{lk}$ es la \textit{delta de Kronecker}, una expresión que utilizaremos frecuentemente y que equivale a:
 
-\begin{itemize}
-	\item $I_{ilk}$ debe ser $1$ para $l = j$ y $0$ para $l \neq j$. 
-	\item $I_{ljk}$ debe ser $1$ para $l = i$ y $0$ para $l \neq i$.
-\end{itemize}
+\begin{equation}
+	\delta_{ab} =
+	\begin{cases}
+		1 & \text{si } a = b \\
+		0 & \text{si } a \neq b
+	\end{cases}
+\end{equation}
 
-Pero habrá casos como $I_{122}$ donde no será posible cumplir ambas condiciones a la vez. (Véase el Anexo para un desarrollo completo en $M_2 (\mathbb{K})$ si se precisa esclarecer el patrón).
+En base a las anteriores expresiones podemos derivar una fórmula para $I_{ijk}$ manipulando sutilmente los subíndices. Véase $I_{ilk}$ y nótese que decir que es igual a $1$ si $l$ toma el valor de $k$ es equivalente a decir que es igual a $1$ si su $j$ es igual a su $k$. En otras palabras, $I_{ijk} = \delta_{jk}$. Pero aplicando el mismo razonamiento sobre $I_{ljk}$ obtenemos que $I_{ijk} = \delta_{ik}$. La única manera de evitar esta contradicción es establecer que $I_{ijk} = \delta_{jk} \delta_{ik}$, pero esto necesariamente excluye múltiples elementos de $A$. (Véase el Anexo 1 para un desarrollo completo en el caso particular $M_2 (\mathbb{K})$ si se precisa esclarecer el patrón).
 
 Al menos una de nuestras suposiciones debe estar errada, y sería óptimo que fuese la tercera (sobre la unicidad de la identidad).
-
-\newpage
 
 \subsection{La identidad como par.}
 
@@ -35,7 +36,7 @@ Decimos que $I, J \in M_{n} (\mathbb{K})$ forman un \textit{par identidad} si cu
 
 $$A_{ijk} = (AIJ)_{ijk} = \sum\limits_{l=1}^{n} A_{ilk} I_{ljk} J_{ijl}$$
 
-Esta vez las condiciones que han de satisfacerse son:
+Esta vez las condiciones a satisfacer son:
 
 \begin{itemize}
 	\item $I_{ljk} = J_{ijl}^{-1}$ para $l = j$ y $I_{ljk} J_{ijl} = 0$ para $l \neq j$.
@@ -48,17 +49,7 @@ Dos cubrices cualquiera que cumplan estas condiciones serán consideradas un \te
 
 Por comodidad y estandarización, resulta inmediata la idea de establecer que todos los términos que deban ser el inverso de otros términos sean iguales a $1$, mientras que todos los que deban anularse con otro sean iguales a $0$.
 
-Es decir, que para que $(AIJ)_{ijk} = A_{ijk}$, debe cumplirse que $I_{ljk} = J_{ijl} = \delta_{jl}$, donde
-
-\begin{equation}
-	\delta_{ab} =
-	\begin{cases}
-		1 & \text{si } a = b \\
-		0 & \text{si } a \neq b
-	\end{cases}
-\end{equation}
-
-Es posible independizar estas expresiones del subíndice $l$ al notar que en $I_{ljk}$, que $l$ sea igual a $j$ es equivalente a que $i = j$ (al ser los subíndices mudos), produciendo la expresión:
+Es decir, que para que $(AIJ)_{ijk} = A_{ijk}$, debe cumplirse que $I_{ljk} = J_{ijl} = \delta_{jl}$. Con un razonamiento muy similar al de la sección 4.1, podemos independizar estas expresiones del subíndice $l$:
 
 $$I_{ijk} = \delta_{ij}$$
 
@@ -66,19 +57,11 @@ Teniendo en cuenta que el par identidad no es conmutativo, es sencillo hacer un 
 
 $$A = A \Delta_{ij} \Delta_{jk} = \Delta_{ij} A \Delta_{ik} = \Delta_{jk} \Delta_{ik} A$$
 
-%\begin{itemize}
-%	\item $A I_1 J_1 = A \Leftrightarrow I_1 = \delta_{ij}$ y $J_1 = \delta_{jk}$.
-%	\item $I_2 A J_2 = A \Leftrightarrow I_2 = \delta_{ij}$ y $J_2 = \delta_{ik}$.
-%	\item $I_3 J_3 A = A \Leftrightarrow I_3 = \delta_{jk}$ y $J_3 = \delta_{ik}$.
-%\end{itemize}
-
-\newpage
-
 Con esto concluímos que existen tres pares identidad estándar fundamentados sobre las tres Kronecker. No es inmediatamente obvio qué patrón se puede esclarecer de este resultado. Sea como fuere, es intrigante observar las cubrices dibujadas por cada Kronecker. Tomemos sus representaciones tridimensionales completas.
 
 \begin{figure}[H]
 	\includegraphics[width=\linewidth]{media/kroneckers.png}
-	\caption{Representación tridimensional completa de $\delta_{ij}$, $\delta{jk}$ y $\delta{ik}$ (celdas iguales a $1$ en blanco e iguales a $0$ en negro).}
+	\caption{Representación tridimensional completa de $\Delta_{ij}$, $\Delta{jk}$ y $\Delta{ik}$ (celdas iguales a $1$ en blanco e iguales a $0$ en negro).}
 \end{figure}
 
 Puede ser útil reagrupar y renombrar los términos de la siguiente forma. Si $I_{ijk} = 1$, entonces:
@@ -88,5 +71,3 @@ Puede ser útil reagrupar y renombrar los términos de la siguiente forma. Si $I
 	\item $A = \Delta_{ij} A I = I A \Delta_{ik}$.
 	\item $A = \Delta_{jk} I A = I \Delta_{ik} A$.
 \end{itemize}
-
-\newpage

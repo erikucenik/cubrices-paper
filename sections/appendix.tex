@@ -1,3 +1,7 @@
+\counterwithin*{equation}{section}
+\counterwithin*{equation}{subsection}
+\counterwithin*{equation}{subsubsection}
+
 \appendix
 \section{Apéndice}
 
@@ -118,9 +122,11 @@ Recapitulando:
 	\end{itemize}
 \end{itemize}
 
+Por cuestiones de estandarización, podemos asumir que los elementos que no se anulen con otros serán iguales a $1$, mientras que aquéllos que sí se anulen, serán $0$.
+
 \begin{itemize}
 	\item $1 = I_{221} = J_{122} = I_{222} = J_{222} = J_{211}^{-1} = I_{111} = J_{111}^{-1} = I_{112}$.
-	\item $0 = I_{211} = J_{112} = I_{212} = J_{112} = I_{121} = J_{121} = I_{122} = J_{121} = I_{211} = J_{212} = I_{212} = J_{212} = I_{121} = J_{221} = I_{122} = J_{221}$.
+	\item $0 = I_{211} = J_{112} = I_{212} = I_{121} = J_{121} = I_{122} = J_{212} = J_{221}$.
 \end{itemize}
 
 Vemos que siempre se cumple que:
@@ -148,7 +154,7 @@ Como descubrimos en la sección 4.2, gracias a que los subíndices son mudos pod
 
 Dado $A$, nuestro objetivo es hallar sus pares inversa sobre dos componentes en cualquier orden de producto. Trataremos los productos que conmuten $I$ con $J$ como casos iguales (justificar $AIJ$ justificará también $AJI$), dado que el resultado de esto será solo conmutar los nombres de los valores.
 
-\subsubsection{$AIJ$ sobre $\delta_{ij}$.}
+\subsubsection{$AIJ$ sobre $i, j$.}
 
 Por definición:
 
@@ -176,11 +182,11 @@ Si no:
 
 En este artículo omitimos la inclusión del segundo factor, tanto por motivos estéticos como prácticos (véase la siguiente sección del anexo).
 
-\subsubsection{$AIJ$ sobre $jk$.}
+\subsubsection{$AIJ$ sobre $j, k$.}
 
 El proceso es casi idéntico al anterior, pero conmutaremos $I$ con $J$ (los valores inversos pasarán a estar en $J$, y los neutros en $I$). La necesidad de hacer esto yace en el deseo de coordinar los subíndices de $I$ y $J$ con el iterador de tal manera que obtengamos expresiones fácilmente maleables como $\delta_{jk} \delta_{jk}$.
 
-\subsubsection{$AIJ$ sobre $ik$.}
+\subsubsection{$AIJ$ sobre $i, k$.}
 
 Este caso requiere algo de atención. Sea $a = i = k$ (en caso de que $i \neq k$, el producto de $I_{ijk}$ y $J_{ijk}$ será cero):
 
@@ -206,7 +212,7 @@ Hemos trabajado con $AIJ$, pero podríamos haber hecho los mismos procedimientos
 
 Las expresiones de los pares inversa pueden ser simplificadas con bastante éxito tan solo reordenando algunos términos.
 
-Como primer y único ejemplo usaremos el caso de $IJA$ sobre $\delta_{ik}$. Según la tabla, 
+Como primer y único ejemplo usaremos el caso de $IJA$ sobre $i, k$. Según la tabla:
 
 $$I_{ijk} = \delta_{ik}$$
 $$J_{ijk} = \delta_{ik} A_{ijk}^{-1}$$
@@ -228,7 +234,7 @@ Y esto es equivalente a tener otro par inversa $(I', J')$ donde:
 $$I'_{ijk} = \delta_{ik} \delta_{jk}$$
 $$J'_{ijk} = (A_{ijk})^{-1}$$
 
-($l$ se sustituiría en $k$ para $I$ y en $i$ para $J$).
+($l$ se sustituiría en $j$ para $I$ y en $i$ para $J$).
 
 Para dar algo de sentido semántico a este par inversa, podemos llamar $\Delta$ a $I'$ y $A^{-1}$ a $J'$.
 
