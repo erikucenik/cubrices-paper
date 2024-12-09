@@ -148,7 +148,7 @@ $$(AIJ)_{ijk} = A_{i1k} I_{1jk} J_{ij1} + A_{i2k} I_{2jk} J_{ij2} + A_{i3k} I_{3
 
 Es decir, para que $(AIJ)_{ijk} = A_{ijk}$, debe cumplirse que $I_{ljk} = J_{ijl} = \delta_{jl}$.
 
-Como descubrimos en la sección \ref{identity-pair}, gracias a que los subíndices son mudos podemos llegar a las tres Kronecker.
+Como descubrimos en la sección \ref{identity-pair}, podemos manipular los subíndices hasta llegar a las tres kronecker.
 
 \subsection{Desarrollo completo de los pares inversa.} \label{appendix-3}
 
@@ -160,7 +160,7 @@ Por definición:
 
 $$(AIJ)_{ijk} = \delta_{ij} = \sum\limits^{n}_{l = 1} A_{ilk} I_{ljk} J_{ijl}$$
 
-Podemos explicar esta expresión en palabras: ``Si $i \neq j$, entonces $I_{ljk} J_{ijl} = 0$. Si $i = j$, y si además $l$ toma el valor de $j$, entonces $I_{ljk} = A^{-1}_{ilk}$ y $J_{ijl} = 1$''. Es vital notar que el hecho de que $l$ tome el valor de $j$ implica que el primer subíndice de $I_{ljk}$ también toma el valor de $j$. Al ser los subíndices mudos, esto equivale a que $i$ sea igual a $j$ (pero \textbf{solo} en el caso de $I$, pues en otros términos el iterador $l$ ocupará la posición de otro subíndice). Con esto en mente, expresar lo mismo utilizando deltas de kronecker es automático:
+Podemos explicar esta expresión en palabras: ``Si $i \neq j$, entonces $I_{ljk} J_{ijl} = 0$. Si $i = j$, y si además $l$ toma el valor de $j$, entonces $I_{ljk} = A^{-1}_{ilk}$ y $J_{ijl} = 1$''. Es vital notar que el hecho de que $l$ tome el valor de $j$ implica que el primer subíndice de $I_{ljk}$ también toma el valor de $j$. Esto equivale a que $i$ sea igual a $j$ (pero \textbf{solo} en el caso de $I$, pues en otros términos el iterador $l$ ocupará la posición de otro subíndice). Con esto en mente, expresar lo mismo utilizando deltas de kronecker es automático:
 
 $$I_{ijk} = \delta_{ij} \delta_{ij} A_{ijk}^{-1} = \delta_{ij} A_{ijk}^{-1}$$
 $$J_{ijk} = \delta_{ij} \approx \delta_{ij} \delta_{jk}$$
