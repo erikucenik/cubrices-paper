@@ -148,7 +148,7 @@ $$(AIJ)_{ijk} = A_{i1k} I_{1jk} J_{ij1} + A_{i2k} I_{2jk} J_{ij2} + A_{i3k} I_{3
 
 Es decir, para que $(AIJ)_{ijk} = A_{ijk}$, debe cumplirse que $I_{ljk} = J_{ijl} = \delta_{jl}$.
 
-Como descubrimos en la sección \ref{identity-pair}, podemos manipular los subíndices hasta llegar a las tres kronecker.
+Como descubrimos en la sección \ref{identity-pair}, podemos manipular los subíndices hasta llegar a las tres Kronecker.
 
 \subsection{Desarrollo completo de los pares inversa.} \label{appendix-3}
 
@@ -160,12 +160,12 @@ Por definición:
 
 $$(AIJ)_{ijk} = \delta_{ij} = \sum\limits^{n}_{l = 1} A_{ilk} I_{ljk} J_{ijl}$$
 
-Podemos explicar esta expresión en palabras: ``Si $i \neq j$, entonces $I_{ljk} J_{ijl} = 0$. Si $i = j$, y si además $l$ toma el valor de $j$, entonces $I_{ljk} = A^{-1}_{ilk}$ y $J_{ijl} = 1$''. Es vital notar que el hecho de que $l$ tome el valor de $j$ implica que el primer subíndice de $I_{ljk}$ también toma el valor de $j$. Esto equivale a que $i$ sea igual a $j$ (pero \textbf{solo} en el caso de $I$, pues en otros términos el iterador $l$ ocupará la posición de otro subíndice). Con esto en mente, expresar lo mismo utilizando deltas de kronecker es automático:
+Podemos explicar esta expresión en palabras: ``Si $i \neq j$, entonces $I_{ljk} J_{ijl} = 0$. Si $i = j$, y si además $l$ toma el valor de $j$, entonces $I_{ljk} = A^{-1}_{ilk}$ y $J_{ijl} = 1$''. Es vital notar que el hecho de que $l$ tome el valor de $j$ implica que el primer subíndice de $I_{ljk}$ también toma el valor de $j$. Esto equivale a que $i$ sea igual a $j$ (pero \textbf{solo} en el caso de $I$, pues en otros términos el iterador $l$ ocupará la posición de otro subíndice). Con esto en mente, expresar lo mismo utilizando deltas de Kronecker es automático:
 
 $$I_{ijk} = \delta_{ij} \delta_{ij} A_{ijk}^{-1} = \delta_{ij} A_{ijk}^{-1}$$
 $$J_{ijk} = \delta_{ij} \approx \delta_{ij} \delta_{jk}$$
 
-En $I$, el primer $\delta_{ij}$ representa la condición que impone la delta de kronecker a la que aspiramos a llegar, mientras que el segundo $\delta_{ij}$ representa la condición que impone el iterador $l$ pero expresada en términos de subíndices de $I$. Como es evidente, $\delta_{ij} \delta_{ij} = \delta_{ij}$.
+En $I$, el primer $\delta_{ij}$ representa la condición que impone la delta de Kronecker a la que aspiramos a llegar, mientras que el segundo $\delta_{ij}$ representa la condición que impone el iterador $l$ pero expresada en términos de subíndices de $I$. Como es evidente, $\delta_{ij} \delta_{ij} = \delta_{ij}$.
 
 En $J$, el término $\delta_{jk}$ representa la condición de ``...si $i = j$ pero $l$ no toma el valor de $j$...'' (lo que en $J$ equivale a que $k$ no tome el valor de $j$). Este término es innecesario, ya que solo se requiere la anulación del producto (y no de ambos factores), y esto ya se satisface gracias al $\delta_{ij}$ presente en $I$. Las condiciones impuestas sobre los valores de $I$ y $J$ quedan perfectamente representadas en el siguiente algoritmo:
 
