@@ -1,27 +1,23 @@
-\section{Definiciones.} \label{defs}
+\section{Definitions.} \label{defs}
 
-\subsection{La estructura del $\mathbb{K}$-álgebra $M_n (\mathbb{K})$.} \label{defs-structure}
+\subsection{The structure of the $M_n (\mathbb{K})$ $\mathbb{K}$-algebra.} \label{defs-structure}
 
-%Definimos $M_{m\times n\times o} (\mathbb{K}) = \{ [\mu_{ijk}] \in \mathbb{K}, 1 \le i,j,k; i \le m, j \le n, k \le o\}$ como el conjunto de las \textit{cubrices} y $M_n (\mathbb{K}) = M_{n\times n\times n} (\mathbb{K})$ como el conjunto de las \textit{cubrices cúbicas}. Por convención, una cubriz se representa con una letra griega mayúscula ($A, B, \Gamma, \Delta \in M_{m\times n\times o}$) y sus elementos se representan con letras griegas mayúsculas o minúsculas y su respectivo subíndice ($A_{ijk} = \alpha_{ijk}, B_{ijk} = \beta_{ijk}, \Gamma_{ijk} = \gamma_{ijk}, \Delta_{ijk} = \delta_{ijk}$).
+We define $M_{m\times n\times o} (\mathbb{K}) = \{ [\mu_{ijk}] \in \mathbb{K}, 1 \le i \le m, 1 \le j \le n, 1 \le k \le o\}$ to be the set of \textit{cubrices} and $M_n (\mathbb{K}) = M_{n\times n\times n} (\mathbb{K})$ to be the set of \textit{cubic cubrices}. By convention, a cubrix is represented by a capital greek letter ($A, B, \Gamma, \Delta \in M_{m\times n\times o}$) and its elements are represented by either upper-case or lower-case greek letters with their respective subindices ($A_{ijk} = \alpha_{ijk}, B_{ijk} = \beta_{ijk}, \Gamma_{ijk} = \gamma_{ijk}, \Delta_{ijk} = \delta_{ijk}$).
 
-Definimos $M_{m\times n\times o} (\mathbb{K}) = \{ [\mu_{ijk}] \in \mathbb{K}, 1 \le i \le m, 1 \le j \le n, 1 \le k \le o\}$ como el conjunto de las \textit{cubrices} y $M_n (\mathbb{K}) = M_{n\times n\times n} (\mathbb{K})$ como el conjunto de las \textit{cubrices cúbicas}. Por convención, una cubriz se representa con una letra griega mayúscula ($A, B, \Gamma, \Delta \in M_{m\times n\times o}$) y sus elementos se representan con letras griegas mayúsculas o minúsculas y su respectivo subíndice ($A_{ijk} = \alpha_{ijk}, B_{ijk} = \beta_{ijk}, \Gamma_{ijk} = \gamma_{ijk}, \Delta_{ijk} = \delta_{ijk}$).
-
-%Sea $M_{m\times n\times o} (\mathbb{K}) = \{ [\mu_{ijk}] \in \mathbb{K}, 1 \le i,j,k \le m,n,o\}$ 
-
-Podemos definir dos operaciones:
+We may define two operations:
 
 \begin{itemize}
-	\item Suma de cubrices. $+: M_{m\times n\times o} \times M_{m\times n\times o} \rightarrow M_{m\times n\times o}, (A, B) \mapsto \Gamma$ tal que $\Gamma_{ijk} = A_{ijk} + B_{ijk}$.
-	\item Producto por un escalar. $\cdot: \mathbb{K} \times M_{m\times n\times o} \rightarrow M_{m\times n\times o}, (a, A) \mapsto B$ tal que $B_{ijk} = a \cdot A_{ijk}$.
+	\item Cubrix addition. $+: M_{m\times n\times o} \times M_{m\times n\times o} \rightarrow M_{m\times n\times o}, (A, B) \mapsto \Gamma$ tal que $\Gamma_{ijk} = A_{ijk} + B_{ijk}$.
+	\item Scalar product. $\cdot: \mathbb{K} \times M_{m\times n\times o} \rightarrow M_{m\times n\times o}, (a, A) \mapsto B$ such that $B_{ijk} = a \cdot A_{ijk}$.
 \end{itemize}
 
-Si $\mathbb{K}$ es un anillo, la n-upla $M_n (\mathbb{K}) = (M_n, \mathbb{K}, +, \cdot)$ es un $\mathbb{K}$-módulo. Si $\mathbb{K}$ es además un cuerpo, $M_n (\mathbb{K})$ será un $\mathbb{K}$-espacio vectorial.
+If $\mathbb{K}$ is a ring, the n-uple $M_n (\mathbb{K}) = (M_n, \mathbb{K}, +, \cdot)$ is a $\mathbb{K}$-module. If $\mathbb{K}$ is also a field, $M_n (\mathbb{K})$ will be a $\mathbb{K}$-vector space.
 
 \newpage
 
-Tenemos ahora la suficiente infraestructura para definir el \textit{producto entre cubrices}:
+We now have enough infrastructure to define the \textit{cubrix product}:
 
-$$\cdot: M_{m\times n\times o} (\mathbb{K}) \times M_{p\times q\times r} (\mathbb{K}) \times M_{s\times t\times u} (\mathbb{K}) \rightarrow M_{v\times w\times x} (\mathbb{K}), (A, B, \Gamma) \mapsto \Delta$$ tal que se cumpla que:
+$$\cdot: M_{m\times n\times o} (\mathbb{K}) \times M_{p\times q\times r} (\mathbb{K}) \times M_{s\times t\times u} (\mathbb{K}) \rightarrow M_{v\times w\times x} (\mathbb{K}), (A, B, \Gamma) \mapsto \Delta$$ such that:
 
 \begin{itemize}
 	\item $\Delta_{ijk} = \sum\limits_{l=1}^{n} A_{ilk} \cdot B_{ljk} \cdot \Gamma_{ijl}$.
@@ -31,24 +27,24 @@ $$\cdot: M_{m\times n\times o} (\mathbb{K}) \times M_{p\times q\times r} (\mathb
 	\item $x = \min\{o, r\}$.
 \end{itemize}
 
-Por supuesto, la n-upla $M_n (\mathbb{K}) = (M_n, \mathbb{K}, \cdot)$ es un $\mathbb{K}$-álgebra.
+Of course, the n-uple $M_n (\mathbb{K}) = (M_n, \mathbb{K}, \cdot)$ is a $\mathbb{K}$-algebra.
 
-\subsection{Propiedades de las cubrices.} \label{defs-properties}
+\subsection{Properties of cubrices.} \label{defs-properties}
 
-Resulta trivial demostrar las siguientes propiedades:
+It's trivial to proove the following properties:
 
 \begin{itemize}
-	\item Conmutatividad de la suma: $A + B = B + A$.
-	\item Asociatividad de la suma: $(A + B) + \Gamma = A + (B + \Gamma)$.
-	\item Asociatividad del producto por un escalar: $a\cdot (b\cdot A) = (a\cdot b)A$.
-	\item Conmutatividad del producto por un escalar: $a\cdot (b\cdot A) = b\cdot (a\cdot A)$.
-	\item Distributividad del escalar: $a\cdot (A + B) = a\cdot A + a\cdot B$.
-	\item Distributividad de la cubriz: $(a + b)\cdot A = a\cdot A + b\cdot A$.
-	\item Asociatividad del producto cubriz: $(A \cdot B \cdot \Gamma) \cdot \Delta \cdot E = A \cdot (B \cdot \Gamma \cdot \Delta) \cdot E = A \cdot B \cdot (\Gamma \cdot \Delta \cdot E)$.
-	\item Existencia de una \textit{cubriz nula}: $0_{ijk} = 0$.
-	\item Existencia de \textit{cubrices opuestas}: $A + (-A) = 0 \Leftrightarrow (-A)_{ijk} = -(A_{ijk}) \forall A$.
+	\item Addition commutativity: $A + B = B + A$.
+	\item Addition associativity: $(A + B) + \Gamma = A + (B + \Gamma)$.
+	\item Scalar product associativity: $a\cdot (b\cdot A) = (a\cdot b)A$.
+	\item Scalar product commutativity: $a\cdot (b\cdot A) = b\cdot (a\cdot A)$.
+	\item Scalar distributivity: $a\cdot (A + B) = a\cdot A + a\cdot B$.
+	\item Cubrix distributivity: $(a + b)\cdot A = a\cdot A + b\cdot A$.
+	\item Cubrix product associativity: $(A \cdot B \cdot \Gamma) \cdot \Delta \cdot E = A \cdot (B \cdot \Gamma \cdot \Delta) \cdot E = A \cdot B \cdot (\Gamma \cdot \Delta \cdot E)$.
+	\item Existance of the \textit{null cubrix}: $0_{ijk} = 0$.
+	\item Existance of \textit{opposite cubrices}: $A + (-A) = 0 \Leftrightarrow (-A)_{ijk} = -(A_{ijk}) \forall A$.
 \end{itemize}
 
-Gracias a las propiedades asociativas podemos omitir el uso de paréntesis por comodidad. Por ejemplo, $A \cdot (B \cdot \Gamma \cdot \Delta) \cdot E = A \cdot B \cdot \Gamma \cdot \Delta \cdot E$. Omitiremos también el símbolo del producto: $(a\cdot b)\cdot (A \cdot B \cdot \Gamma) = (ab)(AB\Gamma)$.
+Thanks to the associative properties we are able to omit the use of parenthesis. For example, $A \cdot (B \cdot \Gamma \cdot \Delta) \cdot E = A \cdot B \cdot \Gamma \cdot \Delta \cdot E$. We may also omit the product's symbol: $(a\cdot b)\cdot (A \cdot B \cdot \Gamma) = (ab)(AB\Gamma)$.
 
-Es notable la ausencia de una noción de \textit{cubriz identidad} y otra de \textit{cubriz inversa}. Estos conceptos están sujetos a ciertas sutilezas, por lo que antes de explorarlos nos aseguraremos de haber obtenido una buena intuición sobre la apariencia de las cubrices y sus operaciones.
+It's worth noting that we are missing a notion for an \textit{identity cubrix} and an \textit{inverse cubrix}. These concepts are subject to some nuance, so before exploring them we shall make sure to have obtained a good intuition over the appearance of cubrices and their operations.

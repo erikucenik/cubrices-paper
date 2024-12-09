@@ -1,72 +1,72 @@
-\section{Noción de identidad.} \label{identity}
+\section{Notion of identity.} \label{identity}
 
-La matriz identidad $I$ es aquélla que cumple que $AI = IA = A$. Es interesante buscar una noción similar en las cubrices, sin embargo, pronto descubrimos que nuestras expectativas sobre esta se ven desafiadas.
+The identity matrix $I$ is the one that satisfies that $AI = IA = A$. It's interesting to look for a similar notion in cubrices, however, we soon discover our expectations to be challenged.
 
-\subsection{Unicidad de I.} \label{identity-unique}
+\subsection{I's uniqueness.} \label{identity-unique}
 
-Sean $A, I \in M_{n} (\mathbb{K})$ tal que $IIA = A$ (el razonamiento funciona independientemente del orden del producto). Partimos de tres asunciones:
+Let $A, I \in M_{n} (\mathbb{K})$ such that $IIA = A$ (the reasoning works regardless of the product's order). We start from three assumptions:
 
 \begin{itemize}
-	\item Ningún elemento de $A$ es nulo.
-	\item Los elementos de $I$ no dependen de los de $A$.
-	\item La cubriz identidad $I$ es única.
+	\item No element from $A$ is zero.
+	\item Elements from $I$ don't depend on ones from $A$.
+	\item The identity cubrix $I$ is unique.
 \end{itemize}
 
-Por definición:
+By definition:
 
 $$A_{ijk} = (I \cdot I \cdot A)_{ijk} = \sum\limits_{l=1}^{n} I_{ilk} \cdot I_{ljk} \cdot A_{ijl}$$
 
-Como suponemos que $I$ no depende de $A$, la expresión solo puede producir $A_{ijk}$ a partir del término $A_{ijl}$ del sumatorio. En otras palabras, $I_{ilk} I_{ljk} = \delta_{lk}$, donde $\delta_{lk}$ es la \textit{delta de Kronecker}, una expresión que utilizaremos frecuentemente y que equivale a:
+Because we supposed that $I$ is independent from $A$, this expression can only yield $A_{ijk}$ from the sum's term $A_{ijl}$. In other words, $I_{ilk} I_{ljk} = \delta_{lk}$, where $\delta_{lk}$ is the \delta{Kronecker delta}, an expression we'll frequently use and which is equivalent to:
 
 \begin{equation}
 	\delta_{ab} =
 	\begin{cases}
-		1 & \text{si } a = b \\
-		0 & \text{si } a \neq b
+		1 & \text{if } a = b \\
+		0 & \text{if } a \neq b
 	\end{cases}
 \end{equation}
 
-En base a las anteriores expresiones podemos derivar una fórmula para $I_{ijk}$ manipulando sutilmente los subíndices. Véase $I_{ilk}$ y nótese que decir que es igual a $1$ si $l$ toma el valor de $k$ es equivalente a decir que es igual a $1$ si su $j$ es igual a su $k$. En otras palabras, $I_{ijk} = \delta_{jk}$. Pero aplicando el mismo razonamiento sobre $I_{ljk}$ obtenemos que $I_{ijk} = \delta_{ik}$. La única manera de evitar esta contradicción es establecer que $I_{ijk} = \delta_{jk} \delta_{ik}$, pero esto necesariamente excluye múltiples elementos de $A$. (Véase el Apéndice \ref{appendix-1} para un desarrollo completo en el caso particular $M_2 (\mathbb{K})$ si se precisa esclarecer el patrón).
+According to the previous expressions we can derive a formula for $I_{ijk}$ by subtle manipulation of subindices. See $I_{ilk}$ and note that saying it is equal to $1$ if $l$ takes $k$'s value is equivalent to saying that it is equal to $1$ if its $j$ is equal to its $k$. In other words, $I_{ijk} = \delta_{jk}$. But applying the same reasoning over $I_{ljk}$ we get that $I_{ijk} = \delta_{ik}$. The only way to avoid this contradiction is to establish that $I_{ijk} = \delta_{jk} \delta_{ik}$, but this necessarily leaves out multiple elements of $A$. (See Appendix \ref{appendix-1} for a complete elaboration on the $M_2 (\mathbb{K})$ particular case if help is needed to clarify the patern).
 
-Al menos una de nuestras suposiciones debe estar errada, y sería óptimo que fuese la tercera (sobre la unicidad de la identidad).
+At least one of our assumptions must be wrong, and it would be optimal for it to be the third one (on the identity's uniqueness).
 
-\subsection{La identidad como par.} \label{identity-pair}
+\subsection{Identity as a pair.} \label{identity-pair}
 
-Decimos que $I, J \in M_{n} (\mathbb{K})$ forman un \textit{par identidad} si cumplen que $AIJ = A$ (exploraremos más adelante la influencia del orden de los factores). Nuevamente utilizamos la definición del producto:
+We say that $I, J \in M_{n} (\mathbb{K})$ form an \textit{identity pair} if they satisfy that $AIJ = A$ (we'll later explore the influence on the order of factors). Once again, using the product's definition:
 
 $$A_{ijk} = (AIJ)_{ijk} = \sum\limits_{l=1}^{n} A_{ilk} I_{ljk} J_{ijl}$$
 
-Esta vez las condiciones a satisfacer son:
+This time, the conditions to be satisfied are:
 
 \begin{itemize}
 	\item $I_{ljk} = J_{ijl}^{-1}$ para $l = j$ y $I_{ljk} J_{ijl} = 0$ para $l \neq j$.
 	\item $J_{ijl} = I_{ljk}^{-1}$ para $l = k$ y $J_{ijl} I_{ljk} = 0$ para $l \neq k$.
 \end{itemize}
 
-Dos cubrices cualquiera que cumplan estas condiciones serán consideradas un \textit{par identidad}, y cumplirán que $AIJ = A$. Es evidente entonces que si $\mathbb{K}$ es un cuerpo, existirán infinitos pares identidad, mientras que si es un anillo unitario conmutativo, solo existirán los que a continuación presentamos.
+Any two cubrices that fulfill these conditions will be considered an \textit{identity pair}, and they will satisfy that $AIJ = A$. It's obvious that if $\mathbb{K}$ is a field, there will be infinitely many identity pairs, whereas if it's a commutative unitary ring, only the following ones will exist.
 
-\subsection{Las tres Kronecker.} \label{identity-kronecker}
+\subsection{The three Kroneckers.} \label{identity-kronecker}
 
-Por comodidad y estandarización, resulta inmediata la idea de establecer que todos los términos que deban ser el inverso de otros términos sean iguales a $1$, mientras que todos los que deban anularse con otro sean iguales a $0$.
+For simplicity and standardization we can set all terms which must be the inverse of others to be equal to $1$, whereas we set all terms which must cancel out to be equal to $0$.
 
-Es decir, que para que $(AIJ)_{ijk} = A_{ijk}$, debe cumplirse que $I_{ljk} = J_{ijl} = \delta_{jl}$. Con un razonamiento muy similar al de la sección \ref{identity-unique}, podemos independizar estas expresiones del subíndice $l$:
+That is to say, for $(AIJ)_{ijk} = A_{ijk}$, then $I_{ljk} = J_{ijl} = \delta_{jl}$. With a reasoning very similar to the one in section \ref{identity-unique}, we can make these expressions independent from the $l$ subindex:
 
 $$I_{ijk} = \delta_{ij}$$
 
-Teniendo en cuenta que el par identidad no es conmutativo, es sencillo hacer un desarrollo similar tanto para $I_2 A J_2$ como para $I_3 J_3 A$ (conmutar la posición de $I$ y $J$ no produce nuevas cubrices, solo conmuta sus nombres). Tomando $\Delta_{ab} = (\delta_{ab})$, obtenemos que: %, de lo cual obtendremos que:
+Having in mind that the identity pair isn't commutative, it's easy to do something similar both for $I_2 A J_2$ and $I_3 J_3 A$ (commuting $I$ and $J$ won't produce new cubrices, but only commute their names). With $\Delta_{ab} = (\delta_{ab})$, we get that:
 
 $$A = A \Delta_{ij} \Delta_{jk} = \Delta_{ij} A \Delta_{ik} = \Delta_{jk} \Delta_{ik} A$$
 
 \newpage
 
-Con esto concluímos que existen tres pares identidad estándar fundamentados sobre las tres Kronecker. No es inmediatamente obvio qué patrón se puede esclarecer de este resultado. Sea como fuere, es intrigante observar las cubrices dibujadas por cada Kronecker. Tomemos sus representaciones tridimensionales completas.
+With this we conclude that there exist three standard identity pairs grounded on the three Kroneckers. It isn't immediately obvious which pattern to take out from this result. In any case, it's intriguing to observe the cubrices drawn by each Kronecker. Let's take their complete three-dimensional representations.
 
 \begin{figure}[H]
 	\includegraphics[width=\linewidth]{media/kroneckers.png}
-	\caption{Representación tridimensional completa de $\Delta_{ij}$, $\Delta{jk}$ y $\Delta{ik}$ (celdas iguales a $1$ en blanco e iguales a $0$ en negro).}
+	\caption{Complete three-dimensional representation of $\Delta_{ij}$, $\Delta{jk}$ y $\Delta{ik}$ (cells equal to $1$ in white and those equal to $0$ in black).}
 \end{figure}
 
-Puede ser útil reagrupar y renombrar los términos de la siguiente forma. Si $I_{ijk} = 1$, entonces:
+It can be useful to group and rename terms in the following way. If $I_{ijk} = 1$, then:
 
 \begin{itemize}
 	\item $A = A \Delta_{ij} I = A I \Delta_{jk}$.
