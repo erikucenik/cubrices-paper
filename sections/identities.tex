@@ -1,8 +1,8 @@
-\section{Noción de identidad.}
+\section{Noción de identidad.} \label{identity}
 
 La matriz identidad $I$ es aquélla que cumple que $AI = IA = A$. Es interesante buscar una noción similar en las cubrices, sin embargo, pronto descubrimos que nuestras expectativas sobre esta se ven desafiadas.
 
-\subsection{Unicidad de I.}
+\subsection{Unicidad de I.} \label{identity-unique}
 
 Sean $A, I \in M_{n} (\mathbb{K})$ tal que $IIA = A$ (el razonamiento funciona independientemente del orden del producto). Partimos de tres asunciones:
 
@@ -26,11 +26,11 @@ Como suponemos que $I$ no depende de $A$, la expresión solo puede producir $A_{
 	\end{cases}
 \end{equation}
 
-En base a las anteriores expresiones podemos derivar una fórmula para $I_{ijk}$ manipulando sutilmente los subíndices. Véase $I_{ilk}$ y nótese que decir que es igual a $1$ si $l$ toma el valor de $k$ es equivalente a decir que es igual a $1$ si su $j$ es igual a su $k$. En otras palabras, $I_{ijk} = \delta_{jk}$. Pero aplicando el mismo razonamiento sobre $I_{ljk}$ obtenemos que $I_{ijk} = \delta_{ik}$. La única manera de evitar esta contradicción es establecer que $I_{ijk} = \delta_{jk} \delta_{ik}$, pero esto necesariamente excluye múltiples elementos de $A$. (Véase el Anexo 1 para un desarrollo completo en el caso particular $M_2 (\mathbb{K})$ si se precisa esclarecer el patrón).
+En base a las anteriores expresiones podemos derivar una fórmula para $I_{ijk}$ manipulando sutilmente los subíndices. Véase $I_{ilk}$ y nótese que decir que es igual a $1$ si $l$ toma el valor de $k$ es equivalente a decir que es igual a $1$ si su $j$ es igual a su $k$. En otras palabras, $I_{ijk} = \delta_{jk}$. Pero aplicando el mismo razonamiento sobre $I_{ljk}$ obtenemos que $I_{ijk} = \delta_{ik}$. La única manera de evitar esta contradicción es establecer que $I_{ijk} = \delta_{jk} \delta_{ik}$, pero esto necesariamente excluye múltiples elementos de $A$. (Véase el Apéndice \ref{appendix-1} para un desarrollo completo en el caso particular $M_2 (\mathbb{K})$ si se precisa esclarecer el patrón).
 
 Al menos una de nuestras suposiciones debe estar errada, y sería óptimo que fuese la tercera (sobre la unicidad de la identidad).
 
-\subsection{La identidad como par.}
+\subsection{La identidad como par.} \label{identity-pair}
 
 Decimos que $I, J \in M_{n} (\mathbb{K})$ forman un \textit{par identidad} si cumplen que $AIJ = A$ (exploraremos más adelante la influencia del orden de los factores). Nuevamente utilizamos la definición del producto:
 
@@ -45,11 +45,11 @@ Esta vez las condiciones a satisfacer son:
 
 Dos cubrices cualquiera que cumplan estas condiciones serán consideradas un \textit{par identidad}, y cumplirán que $AIJ = A$. Es evidente entonces que si $\mathbb{K}$ es un cuerpo, existirán infinitos pares identidad, mientras que si es un anillo unitario conmutativo, solo existirán los que a continuación presentamos.
 
-\subsection{Las tres Kronecker.}
+\subsection{Las tres Kronecker.} \label{identity-kronecker}
 
 Por comodidad y estandarización, resulta inmediata la idea de establecer que todos los términos que deban ser el inverso de otros términos sean iguales a $1$, mientras que todos los que deban anularse con otro sean iguales a $0$.
 
-Es decir, que para que $(AIJ)_{ijk} = A_{ijk}$, debe cumplirse que $I_{ljk} = J_{ijl} = \delta_{jl}$. Con un razonamiento muy similar al de la sección 4.1, podemos independizar estas expresiones del subíndice $l$:
+Es decir, que para que $(AIJ)_{ijk} = A_{ijk}$, debe cumplirse que $I_{ljk} = J_{ijl} = \delta_{jl}$. Con un razonamiento muy similar al de la sección \ref{identity-unique}, podemos independizar estas expresiones del subíndice $l$:
 
 $$I_{ijk} = \delta_{ij}$$
 

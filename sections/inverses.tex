@@ -1,14 +1,14 @@
-\section{Noción de inversa.}
+\section{Noción de inversa.} \label{inverse}
 
-\subsection{Par inversa.}
+\subsection{Par inversa.} \label{inverse-pair}
 
 Al igual que antes, buscamos inspiración en el área de las matrices, donde la matriz inversa $A^{-1}$ a otra matriz $A$ es aquélla que satisface que ${A\cdot A^{-1} = A^{-1} \cdot A = I}$. Ya ha quedado en evidencia la multiplicidad de las cubrices identidad, así que hemos de esperar lo mismo para las cubrices inversas.
 
 Decimos que $I$ y $J$ forman un \textit{par inversa} en $AIJ$ sobre $i, j$ si $(AIJ) = \Delta_{ij}$. Podemos afirmar lo mismo para pares en otros órdenes del producto ($IAJ$, $IJA$) y sobre otras cubrices kronecker ($\Delta_{jk}$, $\Delta_{ik}$). Nótese que la conmutatividad no está asegurada.
 
-\subsection{Todos los pares inversas.}
+\subsection{Todos los pares inversas.} \label{inverse-all-pairs}
 
-Tras un desarrollo algo repetitivo (ver Anexo 3), recogeremos en la siguiente tabla todos los pares inversa no redundantes existentes.
+Tras un desarrollo algo repetitivo (ver Apéndice \ref{appendix-3}), recogeremos en la siguiente tabla todos los pares inversa no redundantes existentes.
 
 \vspace{0.5cm}
 
@@ -26,7 +26,7 @@ Tras un desarrollo algo repetitivo (ver Anexo 3), recogeremos en la siguiente ta
 
 \vspace{0.5cm}
 
-Es fácil notar que con unos simples cambios de nombre podemos obtener un resultado mucho más limpio (Ver Anexo 4). Sea $(A^{-1})_{ijk} = (A_{ijk})^{-1}$ y $\Delta = (\delta_{ij}\delta_{jk})$. Podemos repartir sus productos con $A$ en distintas columnas según la kronecker que resulte del mismo.
+Es fácil notar que con unos simples cambios de nombre podemos obtener un resultado mucho más limpio (ver Apéndice \ref{appendix-4}). Sea $(A^{-1})_{ijk} = (A_{ijk})^{-1}$ y $\Delta = (\delta_{ij}\delta_{jk})$. Podemos repartir sus productos con $A$ en distintas columnas según la kronecker que resulte del mismo.
 
 \vspace{0.5cm}
 \begin{tabular}{ |c|c|c| } 
@@ -42,6 +42,6 @@ Es fácil notar que con unos simples cambios de nombre podemos obtener un result
 
 Nótese la exclusión de la diagonal positiva de la primera tabla presentada. Aquéllas expresiones no pueden ser transformadas en términos tan limpios. Si bien podríamos afirmar que $((\delta_{ab} A^{-1}_{aaa}, (\delta_{ab}))$ constituye un par inversa para esos ordenes, consideramos que la belleza ha de primar sobre la completitud.
 
-Analizando la última tabla, parece evidente que conmutar $A$ con $A^{-1}$ no altera el resultado. En otras palabras: es la posición de $\Delta$ la que determina qué cubriz Kronecker nacerá del producto. Por ejemplo, $\delta_{jk}$ es producida cuando $\Delta$ ocupa la segunda posición. Esto tiene cierto sentido intuitivo, ya que en esta posición del producto, su subíndice $i$ se ve sustituído por el iterador $l$ del sumatorio, dejando como componentes restantes solo a $j$ y a $k$.
+Analizando la última tabla, parece evidente que conmutar $A$ con $A^{-1}$ no altera el resultado. En otras palabras: es la posición de $\Delta$ la que determina qué cubriz Kronecker nacerá del producto. Por ejemplo, $\Delta_{jk}$ es producida cuando $\Delta$ ocupa la segunda posición. Esto tiene cierto sentido intuitivo, ya que en esta posición del producto, su subíndice $i$ se ve sustituído por el iterador $l$ del sumatorio, dejando como componentes restantes solo a $j$ y a $k$.
 
 \newpage
