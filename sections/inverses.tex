@@ -10,35 +10,59 @@ Decimos que $I$ y $J$ forman un \textit{par inversa} en $AIJ$ sobre $i, j$ si $(
 
 Tras un desarrollo algo repetitivo (ver Apéndice \ref{appendix-3}), recogeremos en la siguiente tabla todos los pares inversa no redundantes existentes.
 
-\vspace{0.5cm}
+\bgroup
+\begin{table}[H] 
+\centering
+\captionsetup{labelformat=empty}
+\caption{(Tabla 1) Pares inversa.}
+\label{tabla-explicita}
+\def\arraystretch{1.5}%  1 is the default, change whatever you need
+\begin{tabular}{|c|c|c|c|} 
+	\hline
+	& $\Delta_{ij}$ & $\Delta_{jk}$ & $\Delta_{ik}$ \\
+	\hline
 
-\begin{tabular}{ |c|c|c|c| } 
+	$AIJ$
+	& \begin{tabular}{c} $I_{ijk} = \delta_{ij} A_{ijk}^{-1}$ \\ $J_{ijk} = \delta_{ij}$ \end{tabular}
+	& \begin{tabular}{c} $I_{ijk} = \delta_{jk}$ \\ $J_{ijk} = \delta_{jk} A_{ijk}^{-1}$ \end{tabular}
+	& \begin{tabular}{c} $I_{ijk} = \delta_{ik} A_{kkk}^{-1}$ \\ $J_{ijk} = \delta_{ik}$ \end{tabular} \\
 	\hline
-		  & $\Delta_{ij}$      & $\Delta_{jk}$       & $\Delta_{ik}$ \\
+
+	$IAJ$
+	& \begin{tabular}{c} $I_{ijk} = \delta_{ij} A_{ijk}^{-1}$ \\ $J_{ijk} = \delta_{ij}$ \end{tabular}
+	& \begin{tabular}{c} $I_{ijk} = \delta_{jk} A_{jjj}^{-1}$ \\ $J_{ijk} = \delta_{jk}$ \end{tabular}
+	& \begin{tabular}{c} $I_{ijk} = \delta_{ik}$ \\ $J_{ijk} = \delta_{ik} A_{ijk}^{-1}$ \end{tabular} \\
 	\hline
-	$AIJ$ & \makecell{$I_{ijk} = \delta_{ij} A_{ijk}^{-1}$ \\ $J_{ijk} = \delta_{ij}$}                          & \makecell{$I_{ijk} = \delta_{jk}$ \\ $J_{ijk} = \delta_{jk} A_{ijk}^{-1}$}                          & \makecell{$I_{ijk} = \delta_{ik} A_{kkk}^{-1}$ \\ $J_{ijk} = \delta_{ik}$} \\
-	\hline
-	$IAJ$ & \makecell{$I_{ijk} = \delta_{ij} A_{ijk}^{-1}$ \\ $J_{ijk} = \delta_{ij}$}                          & \makecell{$I_{ijk} = \delta_{jk} A_{jjj}^{-1}$ \\ $J_{ijk} = \delta_{jk}$} & \makecell{$I_{ijk} = \delta_{ik}$ \\ $J_{ijk} = \delta_{ik} A_{ijk}^{-1}$} \\
-	\hline
-	$IJA$ & \makecell{$I_{ijk} = \delta_{ij} A_{iii}^{-1}$ \\ $J_{ijk} = \delta_{ij}$} & \makecell{$I_{ijk} = \delta_{jk} A_{ijk}^{-1}$ \\ $J_{ijk} = \delta_{jk}$}                          & \makecell{$I_{ijk} = \delta_{ik}$ \\ $J_{ijk} = \delta_{ik} A_{ijk}^{-1}$} \\
+
+	$IJA$
+	& \begin{tabular}{c} $I_{ijk} = \delta_{ij} A_{iii}^{-1}$ \\ $J_{ijk} = \delta_{ij}$ \end{tabular}
+	& \begin{tabular}{c} $I_{ijk} = \delta_{jk} A_{ijk}^{-1}$ \\ $J_{ijk} = \delta_{jk}$ \end{tabular}
+	& \begin{tabular}{c} $I_{ijk} = \delta_{ik}$ \\ $J_{ijk} = \delta_{ik} A_{ijk}^{-1}$ \end{tabular} \\
 	\hline
 \end{tabular}
-
-\vspace{0.5cm}
+\end{table}
+\egroup
 
 Es fácil notar que con unos simples cambios de nombre podemos obtener un resultado mucho más limpio (ver Apéndice \ref{appendix-4}). Sea $(A^{-1})_{ijk} = (A_{ijk})^{-1}$ y $\Delta = (\delta_{ij}\delta_{jk})$. Podemos repartir sus productos con $A$ en distintas columnas según la kronecker que resulte del mismo.
 
-\vspace{0.5cm}
-\begin{tabular}{ |c|c|c| } 
+\bgroup
+\begin{table}[H]
+\centering
+\captionsetup{labelformat=empty}
+\caption{(Tabla 2) Pares inversa simplificados.}
+\label{tabla-simplificada}
+\def\arraystretch{1.5}%  1 is the default, change whatever you need
+\begin{tabular}{|c|c|c|c|} 
 	\hline
 	$\Delta_{ij}$ & $\Delta_{jk}$ & $\Delta_{ik}$ \\
 	\hline
-	\makecell{$(A \cdot A^{-1} \cdot \Delta)$ \\ $(A^{-1} \cdot A \cdot \Delta)$} &
-	\makecell{$(A \cdot \Delta \cdot A^{-1})$ \\ $(A^{-1} \cdot \Delta \cdot A)$} &
-	\makecell{$(\Delta \cdot A \cdot A^{-1})$ \\ $(\Delta \cdot A^{-1} \cdot A)$} \\
+	\begin{tabular}{c} $(A \cdot A^{-1} \cdot \Delta)$ \\ $(A^{-1} \cdot A \cdot \Delta)$ \end{tabular} &
+	\begin{tabular}{c} $(A \cdot \Delta \cdot A^{-1})$ \\ $(A^{-1} \cdot \Delta \cdot A)$ \end{tabular} &
+	\begin{tabular}{c} $(\Delta \cdot A \cdot A^{-1})$ \\ $(\Delta \cdot A^{-1} \cdot A)$ \end{tabular} \\
 	\hline
 \end{tabular}
-\vspace{0.5cm}
+\end{table}
+\egroup
 
 Nótese la exclusión de la diagonal positiva de la primera tabla presentada. Aquéllas expresiones no pueden ser transformadas en términos tan limpios. Si bien podríamos afirmar que $((\delta_{ab} A^{-1}_{aaa}, (\delta_{ab}))$ constituye un par inversa para esos ordenes, consideramos que la belleza ha de primar sobre la completitud.
 
