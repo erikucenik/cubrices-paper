@@ -148,7 +148,7 @@ $$(AIJ)_{ijk} = A_{i1k} I_{1jk} J_{ij1} + A_{i2k} I_{2jk} J_{ij2} + A_{i3k} I_{3
 
 That is, for $(AIJ)_{ijk} = A_{ijk}$ to be true, then $I_{ljk} = J_{ijl} = \delta_{jl}$ must also be true.
 
-As we discovered in section \ref{identity-pair}, we can replace the subindices and arrive to the three kroneckers.
+As we discovered in section \ref{identity-pair}, we can replace the subindices and arrive to the three Kroneckers.
 
 \subsection{Full derivation of inverse pairs.} \label{appendix-3}
 
@@ -160,12 +160,12 @@ By definition:
 
 $$(AIJ)_{ijk} = \delta_{ij} = \sum\limits^{n}_{l = 1} A_{ilk} I_{ljk} J_{ijl}$$
 
-We can explain this expression using words: ``If $i \neq j$, then $I_{ljk} J_{ijl} = 0$. If $i = j$, and if $l$ takes the value of $j$, then $I_{ljk} = A^{-1}_{ilk}$ and $J_{ijl} = 1$''. It's vital noting that the fact that $l$ takes the value of $j$ implies that the first subindex of $I_{ljk}$ also takes the value of $j$. This is equivalent to $i$ being equal to $j$ (but \textbf{only} in $I$'s case, as in other terms the iterator $l$ will occupy another subindex's position). With this in mind, expressing the same using kronecker deltas is automatic:
+We can explain this expression using words: ``If $i \neq j$, then $I_{ljk} J_{ijl} = 0$. If $i = j$, and if $l$ takes the value of $j$, then $I_{ljk} = A^{-1}_{ilk}$ and $J_{ijl} = 1$''. It's vital noting that the fact that $l$ takes the value of $j$ implies that the first subindex of $I_{ljk}$ also takes the value of $j$. This is equivalent to $i$ being equal to $j$ (but \textbf{only} in $I$'s case, as in other terms the iterator $l$ will occupy another subindex's position). With this in mind, expressing the same using Kronecker deltas is automatic:
 
 $$I_{ijk} = \delta_{ij} \delta_{ij} A_{ijk}^{-1} = \delta_{ij} A_{ijk}^{-1}$$
 $$J_{ijk} = \delta_{ij} \approx \delta_{ij} \delta_{jk}$$
 
-In $I$, the first $\delta_{ij}$ represents the condition imposed by the kronecker delta we aspire to get, whereas the second $\delta_{ij}$ represents the condition imposed by the iterator $l$, but expressed in terms of $I$'s subindices. Obviously, $\delta_{ij} \delta_{ij} = \delta_{ij}$.
+In $I$, the first $\delta_{ij}$ represents the condition imposed by the Kronecker delta we aspire to get, whereas the second $\delta_{ij}$ represents the condition imposed by the iterator $l$, but expressed in terms of $I$'s subindices. Obviously, $\delta_{ij} \delta_{ij} = \delta_{ij}$.
 
 In $J$, the term $\delta_{jk}$ represents the condition that ``...if $i = j$ but $l$ doesn't take the value of $j$...'' (which in $J$ is equivalent to saying that $k$ doesn't take the value of $j$). This term is unnecesary, as it's only required that the product gets cancelled (and not necessarily both factors), and this is already satisfied thanks to the $\delta_{ij}$ present in $I$. The imposed conditions over $I$'s and $J$'s values are perfectly represented in the following algorithm:
 
@@ -185,6 +185,8 @@ In this article we omit the inclusion of the second factor, both for aesthetical
 \subsubsection{$AIJ$ over $j, k$.}
 
 The process is almost identical to the previous one, but commuting $I$ and $J$ (the inverse values will be contained in $J$, and the neutral ones in $I$). The reason to do this lies in the need to coordinate $I$'s and $J$'s subindices with the iterator such that we get easily malleable expressions like $\delta_{jk} \delta_{jk}$
+
+\newpage
 
 \subsubsection{$AIJ$ over $i, k$.}
 
@@ -212,7 +214,7 @@ We have been working with $AIJ$, but we could have done the same procedures over
 
 The expressions for inverse pairs can be simplified quite remarkably by just reordering some terms.
 
-As our first and only example, we'll use the case of $IJA$ over $i, k$. According to Table \ref{table-explicita}:
+As our first and only example, we'll use the case of $IJA$ over $i, k$. According to Table \ref{tabla-explicita}:
 
 $$I_{ijk} = \delta_{ik}$$
 $$J_{ijk} = \delta_{ik} A_{ijk}^{-1}$$
@@ -225,7 +227,7 @@ And plugging in the subindices:
 
 $$(IJA)_{ijk} = (\delta_{ik}) \cdot (\delta_{lk} A_{ljk}^{-1}) \cdot A$$
 
-Because $\mathbb{K}$ is associative and commutative, we can rewrite this expression such that:
+Because $\mathbb{K}$ is associative and commutative, we can rewrite this expression as:
 
 $$(IJA)_{ijk} = (\delta_{ik} \delta_{lk}) \cdot A_{ljk}^{-1} \cdot A$$
 

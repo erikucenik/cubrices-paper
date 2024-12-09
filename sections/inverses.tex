@@ -2,9 +2,9 @@
 
 \subsection{Inverse pair.} \label{inverse-pair}
 
-As we did before, we'll find inspiration in the field of matrices, where the inverse matrix $A^{-1}$ of a nother matrix $A$ is that which satisfies that ${A\cdot A^{-1} = A^{-1} \cdot A = I}$. The multiplicity of identity cubrices has already become evident, so we should expect the same for inverse cubrices.
+As we did before, we'll find inspiration in the field of matrices, where the inverse matrix $A^{-1}$ of another matrix $A$ is the one which satisfies that ${A\cdot A^{-1} = A^{-1} \cdot A = I}$. The multiplicity of identity cubrices has already become evident, so we should expect the same for inverse cubrices.
 
-We say that $I$ and $J$ form an \textit{inverse pair} in $AIJ$ over $i, j$ if $(AIJ) = \Delta_{ij}$. We can say the same for pairs in other orders ($IAJ$, $IJA$) and over other kronecker cubrices ($\Delta_{jk}$, $\Delta_{ik}$). Note that commutativity isn't insured.
+We say that $I$ and $J$ form an \textit{inverse pair} in $AIJ$ over $i, j$ if $(AIJ) = \Delta_{ij}$. We can say the same for pairs in other orders ($IAJ$, $IJA$) and over other Kronecker cubrices ($\Delta_{jk}$, $\Delta_{ik}$). Note that commutativity isn't insured.
 
 \subsection{All inverse pairs.} \label{inverse-all-pairs}
 
@@ -43,7 +43,7 @@ After a somewhat repetitive derivation (see Appendix \ref{appendix-3}), we can g
 \end{table}
 \egroup
 
-It's easy to note that with some simple renamings we can obtain a much cleaner result (see Appendix \ref{appendix-4}). Let $(A^{-1})_{ijk} = (A_{ijk})^{-1}$ and $\Delta = (\delta_{ij}\delta_{jk})$. We can distribute their products with $A$ in different columns according to the kronecker that comes out of each one.
+It's easy to note that with some simple renamings we can obtain a much cleaner result (see Appendix \ref{appendix-4}). Let $(A^{-1})_{ijk} = (A_{ijk})^{-1}$ and $\Delta = (\delta_{ij}\delta_{jk})$. We can distribute their products with $A$ in different columns according to the Kronecker that comes out of each one.
 
 \bgroup
 \begin{table}[H]
@@ -66,4 +66,4 @@ It's easy to note that with some simple renamings we can obtain a much cleaner r
 
 Note the exclusion of the first table's positive diagonal. Those expressions can't be transformed in such clean terms. We could say that $((\delta_{ab} A^{-1}_{aaa}, (\delta_{ab}))$ forms an inverse pair for those arrangements, but we consider beauty to be more important than completeness.
 
-Analyzing the last table, it seems evident that commuting $A$ with $A^{-1}$ doesn't alter the result. In other words: it's $\Delta$'s position the one that determines which kronecker cubrix the product will yield. For example, $\Delta_{jk}$ is produced when $\Delta$ is in the second position. This holds some intuitive sense, as in this position, its subindex $i$ gets replaced by the iterator $l$ from the sum, leaving $j$ and $k$ as the only components.
+Analyzing the last table, it seems evident that commuting $A$ with $A^{-1}$ doesn't alter the result. In other words: it's $\Delta$'s position the one that determines which Kronecker cubrix the product will yield. For example, $\Delta_{jk}$ is produced when $\Delta$ is in the second position. This holds some intuitive sense, as in this position, its subindex $i$ gets replaced by the iterator $l$ from the sum, leaving $j$ and $k$ as the only components.

@@ -16,7 +16,7 @@ By definition:
 
 $$A_{ijk} = (I \cdot I \cdot A)_{ijk} = \sum\limits_{l=1}^{n} I_{ilk} \cdot I_{ljk} \cdot A_{ijl}$$
 
-Because we supposed that $I$ is independent from $A$, this expression can only yield $A_{ijk}$ from the sum's term $A_{ijl}$. In other words, $I_{ilk} I_{ljk} = \delta_{lk}$, where $\delta_{lk}$ is the $\delta{Kronecker delta}$, an expression we'll frequently use and which is equivalent to:
+Because we supposed that $I$ is independent from $A$, this expression can only yield $A_{ijk}$ from the sum's term $A_{ijl}$. In other words, $I_{ilk} I_{ljk} = \delta_{lk}$, where $\delta_{lk}$ is the \textit{Kronecker delta}, an expression we'll frequently use and which is equivalent to:
 
 \begin{equation}
 	\delta_{ab} =
@@ -26,21 +26,21 @@ Because we supposed that $I$ is independent from $A$, this expression can only y
 	\end{cases}
 \end{equation}
 
-According to the previous expressions we can derive a formula for $I_{ijk}$ by subtle manipulation of subindices. See $I_{ilk}$ and note that saying it is equal to $1$ if $l$ takes $k$'s value is equivalent to saying that it is equal to $1$ if its $j$ is equal to its $k$. In other words, $I_{ijk} = \delta_{jk}$. But applying the same reasoning over $I_{ljk}$ we get that $I_{ijk} = \delta_{ik}$. The only way to avoid this contradiction is to establish that $I_{ijk} = \delta_{jk} \delta_{ik}$, but this necessarily leaves out multiple elements of $A$. (See Appendix \ref{appendix-1} for a complete elaboration on the $M_2 (\mathbb{K})$ particular case if help is needed to clarify the patern).
+According to the previous expressions we can derive a formula for $I_{ijk}$ by subtle manipulation of subindices. See $I_{ilk}$ and note that saying that it is equal to $1$ if $l$ takes $k$'s value is equivalent to saying that it is equal to $1$ if its $j$ is equal to its $k$. In other words, $I_{ijk} = \delta_{jk}$. But applying the same reasoning over $I_{ljk}$ we get that $I_{ijk} = \delta_{ik}$. The only way to avoid this contradiction is to establish that $I_{ijk} = \delta_{jk} \delta_{ik}$, but this necessarily leaves out multiple elements of $A$. (See Appendix \ref{appendix-1} for a complete elaboration on the $M_2 (\mathbb{K})$ particular case if help is needed to clarify the pattern).
 
 At least one of our assumptions must be wrong, and it would be optimal for it to be the third one (on the identity's uniqueness).
 
 \subsection{Identity as a pair.} \label{identity-pair}
 
-We say that $I, J \in M_{n} (\mathbb{K})$ form an \textit{identity pair} if they satisfy that $AIJ = A$ (we'll later explore the influence on the order of factors). Once again, using the product's definition:
+We say that $I, J \in M_{n} (\mathbb{K})$ form an \textit{identity pair} if they satisfy that $AIJ = A$ (we'll later explore the influence of the order of factors). Once again, using the product's definition:
 
 $$A_{ijk} = (AIJ)_{ijk} = \sum\limits_{l=1}^{n} A_{ilk} I_{ljk} J_{ijl}$$
 
 This time, the conditions to be satisfied are:
 
 \begin{itemize}
-	\item $I_{ljk} = J_{ijl}^{-1}$ para $l = j$ y $I_{ljk} J_{ijl} = 0$ para $l \neq j$.
-	\item $J_{ijl} = I_{ljk}^{-1}$ para $l = k$ y $J_{ijl} I_{ljk} = 0$ para $l \neq k$.
+	\item $I_{ljk} = J_{ijl}^{-1}$ if $l = j$ and $I_{ljk} J_{ijl} = 0$ if $l \neq j$.
+	\item $J_{ijl} = I_{ljk}^{-1}$ if $l = k$ and $J_{ijl} I_{ljk} = 0$ if $l \neq k$.
 \end{itemize}
 
 Any two cubrices that fulfill these conditions will be considered an \textit{identity pair}, and they will satisfy that $AIJ = A$. It's obvious that if $\mathbb{K}$ is a field, there will be infinitely many identity pairs, whereas if it's a commutative unitary ring, only the following ones will exist.
